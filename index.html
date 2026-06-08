@@ -13,7 +13,12 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: "Baskerville", 
+                 -apple-system, 
+                 BlinkMacSystemFont, 
+                 "Segoe UI", 
+                 Roboto, 
+                 serif;   /* 最後保底改成 serif 比較保險 */
       background: url('images/Feather.jpg?20250609') no-repeat center center fixed !important;
       background-size: cover !important;
       color: #333;
@@ -21,6 +26,11 @@
       min-height: 100vh;
     }
 
+  /* 如果想確保連結也一定用相同字型（保險起見） */
+  a {
+      font-family: inherit;   /* 直接繼承 body 的設定 */
+  }
+    
     .container { display: flex; min-height: 100vh; }
 
     .sidebar {
