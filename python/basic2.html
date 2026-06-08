@@ -20,16 +20,15 @@
             line-height: 1.6;
         }
 
-        /* 左側選單容器 */
+        /* 左側選單 */
         .sidebar {
             width: 280px;
-            background-color: rgba(255, 255, 255, 0.1);   /* 已改成 0.1 */
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 20px 0;
             overflow-y: auto;
             box-shadow: 2px 0 10px rgba(0,0,0,0.1);
         }
 
-        /* 你原本的 nav-link 樣式 */
         .nav-link {
             display: block;
             padding: 10px 20px;
@@ -50,15 +49,22 @@
             color: white !important;
         }
 
-        /* 標題 */
         .sidebar h2 {
             padding: 0 20px 8px 20px;
             margin: 15px 0 5px 0;
             color: #333;
             font-size: 1.1rem;
         }
+        
+        .top-link {
+            padding: 10px 20px;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+        }
 
-        /* 右側內容區 */
+        /* 右側內容 */
         .main-content {
             flex: 1;
             padding: 40px;
@@ -67,18 +73,13 @@
 
         .content-box {
             max-width: 820px;
-            background-color: rgba(255, 255, 255, 0.1);   /* 已改成 0.1 */
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 40px;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
-        .grok-icon {
-            height: 1em;
-            width: auto;
-            vertical-align: middle;
-            margin: 0 4px;
-        }
+        
     </style>
 </head>
 <body>
@@ -86,23 +87,20 @@
     <!-- 左側選單 -->
     <nav class="sidebar">
         <div class="menu">
+            <!-- Top -->
+            <a href="https://charlotte-novak.github.io/" class="top-link">Top</a>
+
             <h2>Python Notes</h2>
             <ul style="list-style: none; padding: 0; margin: 0;">
-                <li><a href="#" class="nav-link" onclick="loadContent('python-basics')">• 基礎語法</a></li>
-                <li><a href="#" class="nav-link sub" onclick="loadContent('01')">01 - 第一個主題</a></li>
-                <li><a href="#" class="nav-link sub" onclick="loadContent('02')">02 - 第二個主題</a></li>
-                <li><a href="#" class="nav-link sub" onclick="loadContent('03')">03 - 第三個主題</a></li>
+                <li><span class="nav-link" style="cursor: default;">• 基礎語法</span></li>
+                <li><a href="#" class="nav-link sub" onclick="loadContent('01')">01</a></li>
+                <li><a href="#" class="nav-link sub" onclick="loadContent('02')">02</a></li>
+                <li><a href="#" class="nav-link sub" onclick="loadContent('03')">03</a></li>
+                <li><a href="#" class="nav-link sub" onclick="loadContent('04')">04</a></li>
+                <!-- 之後幾十個就繼續照這個格式加 -->
             </ul>
 
-            <h2>MacOS Tricks</h2>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-                <li><a href="#" class="nav-link" onclick="loadContent('mac-shortcuts')">• 使用技巧</a></li>
-            </ul>
-
-            <h2>其他</h2>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-                <li><a href="#" class="nav-link" onclick="loadContent('about')">About Me</a></li>
-            </ul>
+            
         </div>
     </nav>
 
