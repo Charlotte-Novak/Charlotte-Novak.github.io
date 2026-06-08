@@ -5,48 +5,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Charlotte Novak 的學習筆記</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background: url('images/Feather.jpg?20250609') no-repeat center center fixed;
-      background-size: cover;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: url('images/Feather.jpg?20250609') no-repeat center center fixed !important;
+      background-size: cover !important;
       color: #333;
+      line-height: 1.6;
       min-height: 100vh;
     }
+
     .container { display: flex; min-height: 100vh; }
+
     .sidebar {
       width: 260px;
-      background: rgba(255,255,255,0.95);
-      padding: 20px;
+      background: rgba(255,255,255,0.92) !important;
+      backdrop-filter: blur(12px);
+      padding: 24px 0;
+      border-right: 1px solid rgba(0,0,0,0.1);
       position: fixed;
       height: 100vh;
       overflow-y: auto;
+      z-index: 10;
     }
+
     .content {
+      flex: 1;
       margin-left: 260px;
       padding: 40px;
-      background: rgba(255,255,255,0.95);
+      background: transparent !important;   /* 全透明 */
     }
+
+    .logo { 
+      font-size: 1.6rem; 
+      font-weight: bold; 
+      padding: 0 20px 24px; 
+      border-bottom: 1px solid #eee; 
+      margin-bottom: 20px; 
+    }
+
+    .nav-link {
+      display: block;
+      padding: 10px 20px;
+      color: #333;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: #4A6CF7 !important;
+      color: white !important;
+    }
+
+    .section-title {
+      display: block;
+      padding: 8px 20px 4px;
+      font-size: 0.85rem;
+      color: #666;
+      text-transform: uppercase;
+    }
+
+    .sub { padding-left: 40px; font-size: 0.95rem; }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="sidebar">
-      <h2>Charlotte's Notes</h2>
-      <p>✅ Sidebar 正常</p>
-      <ul>
-        <li>Python 筆記</li>
-        <li>Mac DIY</li>
-        <li>碎碎念</li>
-      </ul>
-    </div>
-    
-    <div class="content">
-      <h1>測試頁面 - 應該要看到背景</h1>
-      <p>如果這段文字出現，就代表 HTML 正常。</p>
-      <img src="images/Feather.jpg?20250609" alt="測試" style="max-width:600px; border-radius:12px;">
-    </div>
+    <nav class="sidebar">
+      <div class="logo">Charlotte's Notes</div>
+      
+      <a href="#" class="nav-link active" onclick="loadContent('home')">🏠 首頁</a>
+      
+      <div class="nav-section">
+        <span class="section-title">Python 筆記</span>
+        <a href="#" class="nav-link sub" onclick="loadContent('python-basics')">• 基礎語法</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('python-automation')">• 自動化腳本</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('python-projects')">• 專案實戰</a>
+      </div>
+
+      <div class="nav-section">
+        <span class="section-title">Mac DIY</span>
+        <a href="#" class="nav-link sub" onclick="loadContent('mac-tricks')">• 使用技巧</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('mac-automation')">• 自動化工具</a>
+      </div>
+
+      <a href="#" class="nav-link" onclick="loadContent('thoughts')">💭 碎碎念</a>
+      <a href="#" class="nav-link" onclick="loadContent('about')">👤 關於我</a>
+    </nav>
+
+    <main class="content" id="main-content">
+      <h1>歡迎來到我的學習筆記</h1>
+      <p>這裡記錄我學習 Python、Mac DIY 實驗，以及跟 AI 之間的各種吐槽日常。</p>
+      <p>網站正在逐步完善中～</p>
+    </main>
   </div>
+
+  <script>
+    function loadContent(page) {
+      document.getElementById('main-content').innerHTML = 
+        `<h1>${page === 'home' ? '歡迎來到我的學習筆記' : page}</h1><p>內容開發中...</p>`;
+    }
+  </script>
 </body>
 </html>
