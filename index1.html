@@ -46,10 +46,28 @@
 </head>
 <body>
   <div class="container">
-    <nav class="sidebar">
-      <div class="logo">Charlotte's Notes</div>
-      <a href="#" class="nav-link active">🏠 首頁</a>
-      <!-- 其他 nav 保持你原本的 -->
+   
+       <nav class="sidebar">
+      <div class="logo">Menu</div>
+      
+      <a href="#" class="nav-link active" onclick="loadContent('home')">Top</a>
+      
+      <div class="nav-section">
+        <span class="section-title">Python Notes</span>
+        <a href="#" class="nav-link sub" onclick="loadContent('python-basics')">• 基礎語法</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('python-automation')">• 自動化腳本</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('python-projects')">• 專案實戰</a>
+      </div>
+
+      <div class="nav-section">
+        <span class="section-title">MacOS Tricks</span>
+        <a href="#" class="nav-link sub" onclick="loadContent('mac-tricks')">• 使用技巧</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('mac-automation')">• 自動化工具</a>
+      </div>
+
+      <a href="#" class="nav-link" onclick="loadContent('thoughts')">碎碎念</a>
+      <a href="#" class="nav-link" onclick="loadContent('about')">About Me</a>
+    
     </nav>
     <main class="content">
       <h1>測試背景圖</h1>
