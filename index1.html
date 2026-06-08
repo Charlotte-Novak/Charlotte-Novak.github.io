@@ -4,11 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Charlotte Novak 的學習筆記</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: url('images/Feather.jpg?20250608') no-repeat center center fixed !important;
+      background-size: cover !important;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container { display: flex; min-height: 100vh; }
+
+    .sidebar {
+      width: 260px;
+      background: rgba(255,255,255,0.93);
+      backdrop-filter: blur(12px);
+      padding: 24px 0;
+      border-right: 1px solid rgba(0,0,0,0.1);
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 10;
+    }
+
+    .content {
+      flex: 1;
+      margin-left: 260px;
+      padding: 40px;
+      background: rgba(255,255,255,0.96);
+    }
+
+    .logo { font-size: 1.5rem; font-weight: bold; padding: 0 20px 24px; border-bottom: 1px solid #eee; margin-bottom: 20px; }
+    .nav-link { display: block; padding: 10px 20px; color: #333; text-decoration: none; }
+    .nav-link:hover, .nav-link.active { background: #4A6CF7; color: white; }
+    .section-title { padding: 8px 20px 4px; font-size: 0.85rem; color: #666; text-transform: uppercase; }
+    .sub { padding-left: 40px; }
+  </style>
 </head>
-<body style="background: url('images/Feather.jpg') no-repeat center center fixed; background-size: cover; color:#333; font-family:sans-serif; padding:40px; margin:0;">
-  <h1>測試頁面 - 背景圖應該要出現</h1>
-  <p>如果背景沒出現，請確認 images/Feather.jpg 是否真的存在於 repo 根目錄。</p>
-  
-  <img src="images/Feather.jpg" alt="測試圖" style="max-width:600px; border:2px solid #000; border-radius:12px;">
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <div class="logo">Charlotte's Notes</div>
+      <a href="#" class="nav-link active">🏠 首頁</a>
+      <!-- 其他 nav 保持你原本的 -->
+    </nav>
+    <main class="content">
+      <h1>測試背景圖</h1>
+      <p>如果背景出現了，就代表成功了！</p>
+      <img src="images/Feather.jpg?20250608" alt="測試" style="max-width:600px; border-radius:12px;">
+    </main>
+  </div>
 </body>
 </html>
