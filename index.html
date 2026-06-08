@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Learning Notes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- 左側 Sidebar -->
+    <nav class="sidebar">
+      <div class="logo">🗒️ Menu</div>
+      
+      <a href="#" class="nav-link active" onclick="loadContent('home')">Top</a>
+      
+      <div class="nav-section">
+        <span class="section-title">Python Notes</span>
+        <a href="#" class="nav-link sub" onclick="loadContent('python-basics')">• 基礎語法</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('python-automation')">• 自動化腳本</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('python-projects')">• 專案實戰</a>
+      </div>
+
+      <div class="nav-section">
+        <span class="section-title">MacOS Tricks</span>
+        <a href="#" class="nav-link sub" onclick="loadContent('mac-tricks')">• 使用技巧</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('mac-automation')">• 自動化工具</a>
+      </div>
+
+      <a href="#" class="nav-link" onclick="loadContent('thoughts')">碎碎念</a>
+      <a href="#" class="nav-link" onclick="loadContent('about')">About Me</a>
+    </nav>
+
+    <!-- 右側內容區 -->
+    <main class="content" id="main-content">
+      <!-- 預設載入首頁內容 -->
+    
+      <p>我的學習 Python 過程紀錄，以及在 Mac 上的小實驗與自動化工具的筆記。</p>
+      <p>一個intj，跟Grok之間的吐槽日常～</p>
+      <p>網站正在逐步完善中...這得看我學習進度</p>
+    </main>
+  </div>
+
+  <script>
+    function loadContent(page) {
+      const content = document.getElementById('main-content');
+      
+      // 這裡之後可以改成 fetch 外部 html 檔案
+      if (page === 'home') {
+        content.innerHTML = `<h1>歡迎來到我的學習筆記</h1><p>Python + Mac + AI 碎碎念 實錄</p>`;
+      } else if (page === 'python-basics') {
+        content.innerHTML = `<h1>Python 基礎語法</h1><p>這裡會放基礎筆記...</p>`;
+      } else if (page === 'python-automation') {
+        content.innerHTML = `<h1>Python 自動化腳本</h1><p>Mac 自動化相關...</p>`;
+      } else {
+        content.innerHTML = `<h1>${page}</h1><p>內容開發中...</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
