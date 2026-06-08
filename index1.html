@@ -20,14 +20,14 @@
 
     .sidebar {
       width: 260px;
-      background: rgba(255,255,255,0.93);
+      background: rgba(255,255,255,0.94) !important;
       backdrop-filter: blur(12px);
       padding: 24px 0;
       border-right: 1px solid rgba(0,0,0,0.1);
       position: fixed;
       height: 100vh;
       overflow-y: auto;
-      z-index: 10;
+      z-index: 100;
     }
 
     .content {
@@ -37,43 +37,78 @@
       background: rgba(255,255,255,0.96);
     }
 
-    .logo { font-size: 1.5rem; font-weight: bold; padding: 0 20px 24px; border-bottom: 1px solid #eee; margin-bottom: 20px; }
-    .nav-link { display: block; padding: 10px 20px; color: #333; text-decoration: none; }
-    .nav-link:hover, .nav-link.active { background: #4A6CF7; color: white; }
-    .section-title { padding: 8px 20px 4px; font-size: 0.85rem; color: #666; text-transform: uppercase; }
+    .logo { 
+      font-size: 1.6rem; 
+      font-weight: bold; 
+      padding: 0 20px 24px; 
+      border-bottom: 1px solid #eee; 
+      margin-bottom: 20px; 
+    }
+
+    .nav-link {
+      display: block;
+      padding: 12px 20px;
+      color: #333;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: #4A6CF7 !important;
+      color: white !important;
+    }
+
+    .section-title {
+      display: block;
+      padding: 8px 20px 4px;
+      font-size: 0.85rem;
+      color: #666;
+      text-transform: uppercase;
+    }
+
     .sub { padding-left: 40px; }
   </style>
 </head>
 <body>
   <div class="container">
-   
-       <nav class="sidebar">
-      <div class="logo">Menu</div>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="logo">Charlotte's Notes</div>
       
-      <a href="#" class="nav-link active" onclick="loadContent('home')">Top</a>
+      <a href="#" class="nav-link active" onclick="loadContent('home')">🏠 首頁</a>
       
       <div class="nav-section">
-        <span class="section-title">Python Notes</span>
+        <span class="section-title">Python 筆記</span>
         <a href="#" class="nav-link sub" onclick="loadContent('python-basics')">• 基礎語法</a>
         <a href="#" class="nav-link sub" onclick="loadContent('python-automation')">• 自動化腳本</a>
         <a href="#" class="nav-link sub" onclick="loadContent('python-projects')">• 專案實戰</a>
       </div>
 
       <div class="nav-section">
-        <span class="section-title">MacOS Tricks</span>
+        <span class="section-title">Mac DIY</span>
         <a href="#" class="nav-link sub" onclick="loadContent('mac-tricks')">• 使用技巧</a>
         <a href="#" class="nav-link sub" onclick="loadContent('mac-automation')">• 自動化工具</a>
       </div>
 
-      <a href="#" class="nav-link" onclick="loadContent('thoughts')">碎碎念</a>
-      <a href="#" class="nav-link" onclick="loadContent('about')">About Me</a>
-    
+      <a href="#" class="nav-link" onclick="loadContent('thoughts')">💭 碎碎念</a>
+      <a href="#" class="nav-link" onclick="loadContent('about')">👤 關於我</a>
     </nav>
-    <main class="content">
-      <h1>測試背景圖</h1>
-      <p>如果背景出現了，就代表成功了！</p>
-      <img src="images/Feather.jpg?20250608" alt="測試" style="max-width:600px; border-radius:12px;">
+
+    <!-- 內容區 -->
+    <main class="content" id="main-content">
+      <h1>歡迎來到我的學習筆記</h1>
+      <p>這裡記錄我學習 Python、Mac DIY 實驗，以及跟 AI 之間的各種吐槽日常。</p>
+      <p>網站正在逐步完善中～</p>
+      
+      <img src="images/Feather.jpg?20250608" alt="測試" style="max-width:700px; border-radius:12px; margin-top:20px;">
     </main>
   </div>
+
+  <script>
+    function loadContent(page) {
+      document.getElementById('main-content').innerHTML = 
+        `<h1>${page === 'home' ? '歡迎來到我的學習筆記' : page}</h1><p>內容開發中...</p>`;
+    }
+  </script>
 </body>
 </html>
