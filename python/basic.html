@@ -107,7 +107,7 @@
     <nav class="sidebar">
       <div class="logo">Learning Notes</div>
       
-      <a href="#" class="nav-link active" onclick="loadHome()">Top</a>
+      <a href="https://charlotte-novak.github.io/" class="nav-link">Top</a>
       
       <div class="nav-section">
         <span class="section-title">基礎語法</span>
@@ -140,28 +140,6 @@
     </main>
   </div>
 
-   <script>
-    // 保存最初的首頁內容
-    let homeContent = document.getElementById('main-content').innerHTML;
-
-    function loadHome() {
-      document.getElementById('main-content').innerHTML = homeContent;
-      
-      // 清除其他 active，只保留首頁
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-      });
-      // 給首頁加上 active
-      document.querySelector('a[onclick="loadHome()"]').classList.add('active');
-    }
-
-    function loadContent(page) {
-      const content = document.getElementById('main-content');
-      content.innerHTML = `<h1>${page}</h1><p>內容開發中...</p>`;
-      
-      // 切換 active
-      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-    }
-  </script>
+  
 
 </html>
