@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Python 學習筆記、macOS 使用技巧、與 AI 的討論，以及各種生活碎碎念。記錄真實學習過程、自動化實驗與隨想。">
+  <meta name="keywords" content="Python, macOS, DIY, 自動化, AI, 學習筆記">
+  <meta name="author" content="Charlotte Novak">
   <title>Charlotte Novak 的學習筆記</title>
+  
+  <!-- 你的 style 在這裡 -->
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -23,7 +28,7 @@
       background: rgba(255,255,255,0.1) !important;   /* 更透明 */
       backdrop-filter: blur(12px);
       padding: 24px 0;
-      border-right: 1px solid rgba(255,255,255,0.2);
+      border-right: 1px solid rgba(255,255,255,0.1);
       position: fixed;
       height: 100vh;
       overflow-y: auto;
@@ -72,25 +77,25 @@
 <body>
   <div class="container">
     <nav class="sidebar">
-      <div class="logo">Charlotte's Notes</div>
+      <div class="logo">Learning Notes</div>
       
-      <a href="#" class="nav-link active" onclick="loadContent('home')">🏠 首頁</a>
+      <a href="#" class="nav-link active" onclick="loadContent('home')"></a>
       
       <div class="nav-section">
-        <span class="section-title">Python 筆記</span>
+        <span class="section-title">Python Notes</span>
         <a href="#" class="nav-link sub" onclick="loadContent('python-basics')">• 基礎語法</a>
         <a href="#" class="nav-link sub" onclick="loadContent('python-automation')">• 自動化腳本</a>
         <a href="#" class="nav-link sub" onclick="loadContent('python-projects')">• 專案實戰</a>
       </div>
 
       <div class="nav-section">
-        <span class="section-title">Mac DIY</span>
+        <span class="section-title">MacOS Tricks</span>
         <a href="#" class="nav-link sub" onclick="loadContent('mac-tricks')">• 使用技巧</a>
         <a href="#" class="nav-link sub" onclick="loadContent('mac-automation')">• 自動化工具</a>
       </div>
 
-      <a href="#" class="nav-link" onclick="loadContent('thoughts')">💭 碎碎念</a>
-      <a href="#" class="nav-link" onclick="loadContent('about')">👤 關於我</a>
+      <a href="#" class="nav-link" onclick="loadContent('thoughts')">碎碎念</a>
+      <a href="#" class="nav-link" onclick="loadContent('about')">About Me</a>
     </nav>
 
     <main class="content" id="main-content">
