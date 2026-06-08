@@ -79,7 +79,7 @@
     <nav class="sidebar">
       <div class="logo">Learning Notes</div>
       
-      <a href="#" class="nav-link active" onclick="loadContent('home')"></a>
+      <a href="#" class="nav-link active" onclick="loadContent('home')">Top</a>
       
       <div class="nav-section">
         <span class="section-title">Python Notes</span>
@@ -105,11 +105,23 @@
     </main>
   </div>
 
-  <script>
+ <script>
+    // 保存初始內容，點擊首頁時可以恢復
+    const initialContent = document.getElementById('main-content').innerHTML;
+
+    function loadHome() {
+      document.getElementById('main-content').innerHTML = initialContent;
+      // 把所有 nav-link 的 active 移除，只保留首頁
+      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+      document.querySelector('a[onclick="loadHome()"]').classList.add('active');
+    }
+
     function loadContent(page) {
-      document.getElementById('main-content').innerHTML = 
-        `<h1>${page === 'home' ? '歡迎來到我的學習筆記' : page}</h1><p>內容開發中...</p>`;
+      const content = document.getElementById('main-content');
+      content.innerHTML = `<h1>${page}</h1><p>內容開發中...</p>`;
+      
+      // 切換 active 狀態
+      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
     }
   </script>
-</body>
 </html>
