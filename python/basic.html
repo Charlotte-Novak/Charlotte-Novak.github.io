@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Python 學習筆記、macOS 使用技巧、與 AI 的討論，以及各種生活碎碎念。記錄真實學習過程、自動化實驗與隨想。">
+  <meta name="keywords" content="Python, macOS, DIY, 自動化, AI, 學習筆記">
+  <meta name="author" content="Charlotte Novak">
+  <title>Basic Elements</title>
+  
+  <!-- 你的 style 在這裡 -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Baskerville", 
+                 -apple-system, 
+                 BlinkMacSystemFont, 
+                 "Segoe UI", 
+                 Roboto, 
+                 serif;   /* 最後保底改成 serif 比較保險 */
+      background: url('images/Feather.jpg?20250609') no-repeat center center fixed !important;
+      background-size: cover !important;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+  /* 如果想確保連結也一定用相同字型（保險起見） */
+  a {
+      font-family: inherit;   /* 直接繼承 body 的設定 */
+  }
+    
+    .container { display: flex; min-height: 100vh; }
+
+    .sidebar {
+      width: 260px;
+      background: rgba(255,255,255,0.1) !important;   /* 更透明 */
+      backdrop-filter: blur(12px);
+      padding: 24px 0;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 10;
+    }
+
+    .content {
+      flex: 1;
+      margin-left: 260px;
+      padding: 40px;
+      background: rgba(255,255,255,0.2) !important;   /* 也更透明 */
+    }
+
+    .logo { 
+      font-size: 1.3rem; 
+      font-weight: bold; 
+      padding: 0 20px 24px; 
+      border-bottom: 1px solid rgba(0,0,0,0.1); 
+      margin-bottom: 20px; 
+    }
+
+    .nav-link {
+      display: block;
+      padding: 10px 20px;
+      color: #333;
+      text-decoration: none;
+      font-size: 0.75rem; 
+      transition: all 0.2s;
+    }
+
+     .sub { padding-left: 40px; 
+           font-size: 0.6rem; 
+    }
+    
+    .nav-link:hover, .nav-link.active {
+      background: #9de0fa !important;
+      color: white !important;
+    }
+
+    .section-title {
+      display: block;
+      padding: 8px 20px 4px;
+      font-size: 0.75rem;
+      color: #555;
+    }
+
+
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <div class="logo">Learning Notes</div>
+      
+      <a href="#" class="nav-link active" onclick="loadHome()">Top</a>
+      
+      <div class="nav-section">
+        <span class="section-title">基礎語法</span>
+        <a href="#" class="nav-link sub" onclick="loadContent('python-basics')">• Beginning</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('python-automation')">• print</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('python-projects')">• len</a>
+      </div>
+
+     
+
+    <main class="content" id="main-content">
+      <h1>In learning's sea, no shore in sight,</h1>
+      <h1>Turn back, and land is pure delight.</h1>
+      
+      <br><br><br><br><br><br><br><br><br><br><br><br><br>
+      
+      <p style="background-color: rgba(255, 255, 255, 0.3); padding: 10px; line-height: 1.5;">
+    Python筆記，MacOS Tricks 實驗，以及跟 
+    <a href="https://grok.com/" target="_blank" style="text-decoration: none;">
+        <img src="images/grok-192.png" 
+             class="grok-icon" 
+             alt="Grok">
+    </a>
+    之間的各種吐槽日常。
+</p>
+
+<p style="background-color: rgba(255, 255, 255, 0.3); padding: 10px;">
+    網站正在逐步完善中～
+</p>
+    </main>
+  </div>
+
+   <script>
+    // 保存最初的首頁內容
+    let homeContent = document.getElementById('main-content').innerHTML;
+
+    function loadHome() {
+      document.getElementById('main-content').innerHTML = homeContent;
+      
+      // 清除其他 active，只保留首頁
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      // 給首頁加上 active
+      document.querySelector('a[onclick="loadHome()"]').classList.add('active');
+    }
+
+    function loadContent(page) {
+      const content = document.getElementById('main-content');
+      content.innerHTML = `<h1>${page}</h1><p>內容開發中...</p>`;
+      
+      // 切換 active
+      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+    }
+  </script>
+
+</html>
