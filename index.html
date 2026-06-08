@@ -6,18 +6,18 @@
   <title>Charlotte Novak 的學習筆記</title>
   
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  
-
-    .container {
-      display: flex;
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: url('images/Feather.jpg') no-repeat center center fixed !important;
+      background-size: cover !important;
+      color: #333;
+      line-height: 1.6;
       min-height: 100vh;
     }
+
+    .container { display: flex; min-height: 100vh; }
 
     .sidebar {
       width: 260px;
@@ -28,6 +28,7 @@
       position: fixed;
       height: 100vh;
       overflow-y: auto;
+      z-index: 10;
     }
 
     .content {
@@ -68,67 +69,46 @@
       letter-spacing: 0.8px;
     }
 
-    .sub {
-      padding-left: 40px;
-      font-size: 0.95rem;
-    }
-
-   
+    .sub { padding-left: 40px; font-size: 0.95rem; }
   </style>
 </head>
-
-
-  
-  
-  <body background="images/Fearther.jpg">
+<body>
   <div class="container">
     <!-- 左側 Sidebar -->
     <nav class="sidebar">
-      <div class="logo">Menu</div>
+      <div class="logo">Charlotte's Notes</div>
       
-      <a href="#" class="nav-link active" onclick="loadContent('home')">Top</a>
+      <a href="#" class="nav-link active" onclick="loadContent('home')">🏠 首頁</a>
       
       <div class="nav-section">
-        <span class="section-title">Python Notes</span>
+        <span class="section-title">Python 筆記</span>
         <a href="#" class="nav-link sub" onclick="loadContent('python-basics')">• 基礎語法</a>
         <a href="#" class="nav-link sub" onclick="loadContent('python-automation')">• 自動化腳本</a>
         <a href="#" class="nav-link sub" onclick="loadContent('python-projects')">• 專案實戰</a>
       </div>
 
       <div class="nav-section">
-        <span class="section-title">MacOS Tricks</span>
+        <span class="section-title">Mac DIY</span>
         <a href="#" class="nav-link sub" onclick="loadContent('mac-tricks')">• 使用技巧</a>
         <a href="#" class="nav-link sub" onclick="loadContent('mac-automation')">• 自動化工具</a>
       </div>
 
-      <a href="#" class="nav-link" onclick="loadContent('thoughts')">碎碎念</a>
-      <a href="#" class="nav-link" onclick="loadContent('about')">About Me</a>
+      <a href="#" class="nav-link" onclick="loadContent('thoughts')">💭 碎碎念</a>
+      <a href="#" class="nav-link" onclick="loadContent('about')">👤 關於我</a>
     </nav>
 
     <!-- 右側內容區 -->
     <main class="content" id="main-content">
-      <!-- 預設載入首頁內容 -->
-    
-      <p>我的學習 Python 過程紀錄，以及在 Mac 上的小實驗與自動化工具的筆記。</p>
-      <p>一個intj，跟Grok之間的吐槽日常～</p>
-      <p>網站正在逐步完善中...這得看我學習進度</p>
+      <h1>歡迎來到我的學習筆記</h1>
+      <p>這裡記錄我學習 Python、Mac DIY 實驗，以及跟 AI 之間的各種吐槽日常。</p>
+      <p>網站正在逐步完善中～</p>
     </main>
   </div>
 
   <script>
     function loadContent(page) {
       const content = document.getElementById('main-content');
-      
-      // 這裡之後可以改成 fetch 外部 html 檔案
-      if (page === 'home') {
-        content.innerHTML = `<h1>歡迎來到我的學習筆記</h1><p>Python + Mac + AI 碎碎念 實錄</p>`;
-      } else if (page === 'python-basics') {
-        content.innerHTML = `<h1>Python 基礎語法</h1><p>這裡會放基礎筆記...</p>`;
-      } else if (page === 'python-automation') {
-        content.innerHTML = `<h1>Python 自動化腳本</h1><p>Mac 自動化相關...</p>`;
-      } else {
-        content.innerHTML = `<h1>${page}</h1><p>內容開發中...</p>`;
-      }
+      content.innerHTML = `<h1>${page === 'home' ? '歡迎來到我的學習筆記' : page}</h1><p>內容開發中...</p>`;
     }
   </script>
 </body>
