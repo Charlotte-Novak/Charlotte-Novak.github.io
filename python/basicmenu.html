@@ -21,7 +21,7 @@
         }
 
         /* 左側選單 */
-        .sidebar {
+        nav.sidebar {
             width: 280px;
             background-color: rgba(255, 255, 255, 0.2);
             padding: 20px 0;
@@ -38,34 +38,15 @@
             transition: all 0.2s;
         }
 
-        .sub {
-            padding-left: 40px;
-            font-size: 0.7rem;
-        }
+        .sub { padding-left: 40px; font-size: 0.7rem; }
 
-        .nav-link:hover, 
-        .nav-link.active {
+        .nav-link:hover, .nav-link.active {
             background: #9de0fa !important;
             color: white !important;
         }
 
-        .sidebar h2 {
-            padding: 0 20px 8px 20px;
-            margin: 15px 0 5px 0;
-            color: #333;
-            font-size: 1rem;
-        }
-        
-        .top-link {
-            padding: 10px 20px;
-            color: #0066cc;
-            text-decoration: none;
-            font-weight: bold;
-            display: block;
-        }
-
         /* 右側內容 */
-        .main-content {
+        main {
             flex: 1;
             padding: 40px;
             overflow-y: auto;
@@ -82,28 +63,26 @@
 </head>
 <body>
 
-    <!-- 左側選單 -->
+    <!-- 左側導航 -->
     <nav class="sidebar">
-        <div class="menu">
-            <a href="https://charlotte-novak.github.io/" class="top-link">Top</a>
+        <a href="https://charlotte-novak.github.io/" class="top-link">Top</a>
 
-            <h2>Python Notes</h2>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-                <li><span class="nav-link" style="cursor: default;">• 基礎語法</span></li>
-                <li><a href="#" class="nav-link sub" onclick="loadContent('01')">01</a></li>
-                <li><a href="#" class="nav-link sub" onclick="loadContent('02')">02</a></li>
-                <li><a href="#" class="nav-link sub" onclick="loadContent('03')">03</a></li>
-                <li><a href="#" class="nav-link sub" onclick="loadContent('04')">04</a></li>
-            </ul>
-        </div>
+        <h2>Python Notes</h2>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+            <li><span class="section-title">• 基礎語法</span></li>
+            <li><a href="#" class="nav-link sub" onclick="loadContent('01')">01</a></li>
+            <li><a href="#" class="nav-link sub" onclick="loadContent('02')">02</a></li>
+            <li><a href="#" class="nav-link sub" onclick="loadContent('03')">03</a></li>
+            <li><a href="#" class="nav-link sub" onclick="loadContent('04')">04</a></li>
+        </ul>
     </nav>
 
-    <!-- 右側內容區 -->
-    <div class="main-content">
+    <!-- 右側主要內容 -->
+    <main>
         <div id="main-content" class="content-box">
-            <!-- 自動載入 01 內容 -->
+            <!-- JS 會自動載入 01.html 內容 -->
         </div>
-    </div>
+    </main>
 
     <script>
         function loadContent(page) {
@@ -120,17 +99,16 @@
                 })
                 .catch(err => {
                     contentArea.innerHTML = `
-                        <h2>內容開發中...</h2>
-                        <p>「${page}」的內容正在準備中～</p>
+                        <div class="content-box">
+                            <h2>內容開發中...</h2>
+                            <p>「${page}」的內容正在準備中～</p>
+                        </div>
                     `;
                     console.error(err);
                 });
         }
 
-        // 頁面載入後自動顯示 01
-        document.addEventListener('DOMContentLoaded', function() {
-            loadContent('01');
-        });
+        document.addEventListener('DOMContentLoaded', () => loadContent('01'));
     </script>
 </body>
 </html>
