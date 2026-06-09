@@ -19,6 +19,22 @@
             color: #333;
             line-height: 1.6;
         }
+        /* Text Format */
+
+        .content-01 {
+            /* box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            /* padding: 45px;
+                border-radius: 20px;
+                box-shadow: 0 15px 35px rgba(0,0,0,0.18); */
+            /*想要半透背景開這堆*/
+            font-size: 1.3em;
+            font-weight: bold;
+
+        }
+
+
+
+
 
         /* 左側選單 */
 
@@ -62,11 +78,12 @@
         }
 
         .content-box {
+            /* background-color: 已經刪掉 */
             max-width: 820px;
-            background-color: rgba(255, 255, 255, 0.1);
             padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            /* box-shadow: 0 10px 30px rgba(0,0,0,0.12); */
+}
         }
 
         .section-title {
@@ -90,7 +107,7 @@
         <span class="section-title"><b>Python Notes</b></span>
         <ul style="list-style: none; padding: 0; margin: 0;">
             <li><span class="section-title"><b>• 基礎語法</b></span></li>
-            <li><a href="#" class="nav-link sub" onclick="loadContent('01')">01</a></li>
+            <li><a href="#" class="nav-link sub" onclick="loadContent('beginning')">Beginning</a></li>
             <li><a href="#" class="nav-link sub" onclick="loadContent('02')">02</a></li>
             <li><a href="#" class="nav-link sub" onclick="loadContent('03')">03</a></li>
             <li><a href="#" class="nav-link sub" onclick="loadContent('04')">04</a></li>
@@ -128,7 +145,7 @@
                 });
         }
 
-        document.addEventListener('DOMContentLoaded', () => loadContent('01'));
+        document.addEventListener('DOMContentLoaded', () => loadContent('beginning'));
     </script>
 </body>
 </html>
