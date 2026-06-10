@@ -5,38 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python Notes</title>
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif;
-            background-image: url("https://charlotte-novak.github.io/images/Feather.jpg?20250609");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
+            background: url("https://charlotte-novak.github.io/images/Feather.jpg?20250609") no-repeat center center fixed;
             background-size: cover;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
             color: #333;
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
         }
+
         /* Text Format */
 
         .content-01 {
-            /* box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            /* padding: 45px;
-                border-radius: 20px;
-                box-shadow: 0 15px 35px rgba(0,0,0,0.18); */
-            /*想要半透背景開這堆*/
             font-size: 1.3em;
             font-weight: bold;
+            /* 半透明白色背景 + 圓角 + 陰影（如果你之後想開）
+            background: rgba(255, 255, 255, 0.75);
+            padding: 40px;
+            border-radius: 16px;
+            /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); */
+}
 
+        .sidebar {
+            width: 280px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(6px);
+            padding: 24px 0;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 10;
         }
-
-
-
-
-
-        /* 左側選單 */
 
         .logo { 
             font-size: 1.3rem; 
@@ -44,14 +47,6 @@
             padding: 0 20px 24px; 
             border-bottom: 1px solid rgba(0,0,0,0.1); 
             margin-bottom: 20px; 
-        }
-
-        nav.sidebar {
-            width: 280px;
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 20px 0;
-            overflow-y: auto;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
         }
 
         .nav-link {
@@ -63,27 +58,14 @@
             transition: all 0.2s;
         }
 
-        .sub { padding-left: 40px; font-size: 0.8rem; }
+        .sub { 
+            padding-left: 40px; 
+            font-size: 0.8rem; 
+        }
 
         .nav-link:hover, .nav-link.active {
             background: #9de0fa !important;
             color: white !important;
-        }
-
-        /* 右側內容 */
-        main {
-            flex: 1;
-            padding: 40px;
-            overflow-y: auto;
-        }
-
-        .content-box {
-            /* background-color: 已經刪掉 */
-            max-width: 820px;
-            padding: 40px;
-            border-radius: 16px;
-            /* box-shadow: 0 10px 30px rgba(0,0,0,0.12); */
-}
         }
 
         .section-title {
@@ -92,32 +74,44 @@
             font-size: 0.9rem;
             color: #555;
         }
+
+        /* 右側內容 */
+        main {
+            flex: 1;
+            margin-left: 280px;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .content-box {
+            max-width: 820px;
+            padding: 40px;
+            border-radius: 16px;
+        }
     </style>
 </head>
 <body>
 
     <!-- 左側導航 -->
     <nav class="sidebar">
-        
         <div class="logo">Learning Notes</div>
 
         <a href="https://charlotte-novak.github.io/" class="nav-link active"><b>Top</b></a>
 
-
-        <span class="section-title"><b>Python Notes</b></span>
-        <ul style="list-style: none; padding: 0; margin: 0;">
-            <li><span class="section-title"><b>• 基礎語法</b></span></li>
-            <li><a href="#" class="nav-link sub" onclick="loadContent('beginning')">Beginning</a></li>
-            <li><a href="#" class="nav-link sub" onclick="loadContent('02')">02</a></li>
-            <li><a href="#" class="nav-link sub" onclick="loadContent('03')">03</a></li>
-            <li><a href="#" class="nav-link sub" onclick="loadContent('04')">04</a></li>
-        </ul>
+        <div class="nav-section">
+            <span class="section-title"><b>Python Notes</b></span>
+            <a href="#" class="nav-link sub" onclick="loadContent('beginning')">• 基礎語法</a>
+            <a href="#" class="nav-link sub" onclick="loadContent('beginning')">Beginning</a>
+            <a href="#" class="nav-link sub" onclick="loadContent('02')">02</a>
+            <a href="#" class="nav-link sub" onclick="loadContent('03')">03</a>
+            <a href="#" class="nav-link sub" onclick="loadContent('04')">04</a>
+        </div>
     </nav>
 
     <!-- 右側主要內容 -->
     <main>
         <div id="main-content" class="content-box">
-            <!-- JS 會自動載入 01.html 內容 -->
+            <!-- JS 會自動載入 beginning.html -->
         </div>
     </main>
 
@@ -136,15 +130,14 @@
                 })
                 .catch(err => {
                     contentArea.innerHTML = `
-                        <div class="content-box">
-                            <h2>內容開發中...</h2>
-                            <p>「${page}」的內容正在準備中～</p>
-                        </div>
+                        <h2>內容開發中...</h2>
+                        <p>「${page}」的內容正在準備中～</p>
                     `;
                     console.error(err);
                 });
         }
 
+        // 頁面載入後自動顯示 beginning
         document.addEventListener('DOMContentLoaded', () => loadContent('beginning'));
     </script>
 </body>
