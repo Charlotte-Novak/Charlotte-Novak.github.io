@@ -22,12 +22,38 @@
         .content-01 {
             font-size: 1.3em;
             font-weight: bold;
-            /* 半透明白色背景 + 圓角 + 陰影（如果你之後想開）
+            margin-bottom: 1.5em;   /* 控制段落之間的空行 */
+            font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif; /* 防止意外 */
+
+            /* 半透明白色背景 + 圓角 + 陰影（如果之後想開）
             background: rgba(255, 255, 255, 0.75);
             padding: 40px;
             border-radius: 16px;
-            /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); */
-}
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); */
+        }
+
+        .content-02 {
+            font-size: 1em;
+            margin-bottom: 1.5em;   /* 控制段落之間的空行 */
+            font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif;
+
+            /* 
+            font-weight: bold;
+            半透明白色背景 + 圓角 + 陰影（如果之後想開）
+            background: rgba(255, 255, 255, 0.75);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); */
+        }
+
+        .content-02 li {
+            margin-bottom: 15px;           /* 每個list項目之間的間距 */
+            line-height: 2;              /* 行高，讓文字舒服一點 */
+            padding-left: 4px;
+        }
+
+
+
 
         .sidebar {
             width: 280px;
@@ -54,13 +80,13 @@
             padding: 10px 20px;
             color: #333;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 1rem;
             transition: all 0.2s;
         }
 
         .sub { 
             padding-left: 40px; 
-            font-size: 0.8rem; 
+            font-size: 0.9rem; 
         }
 
         .nav-link:hover, .nav-link.active {
@@ -71,7 +97,7 @@
         .section-title {
             display: block;
             padding: 8px 20px 4px;
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: #555;
         }
 
