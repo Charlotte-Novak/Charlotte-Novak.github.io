@@ -34,7 +34,7 @@
     .container { display: flex; min-height: 100vh; }
 
     .sidebar {
-      width: 280px;
+      width: 320px;
       background: rgba(255,255,255,0.1) !important;   /* 更透明 */
       backdrop-filter: blur(6px);
       padding: 24px 0;
@@ -47,7 +47,7 @@
 
     .content {
       flex: 1;
-      margin-left: 280px;
+      margin-left: 320px;
       padding: 40px;
       background: rgba(255,255,255,0.2) !important;   /* 也更透明 */
     }
@@ -187,6 +187,20 @@
             padding-left: 4px;
 
         }
+
+         /* 右側內容 */
+        main {
+            flex: 1;
+            margin-left: 450px;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .content-box {
+            max-width: 1000px;
+            padding: 40px;
+            border-radius: 16px;
+        }
     /* ------------------------⬆️ 右方內容區的 Text Format ----------------------------------------- */
 
     .grok-icon {
@@ -233,7 +247,7 @@
    <!-------------------------------------- ⬆️ 接疊menu -------------------------->
 
 
-      <a href="#" class="nav-link" onclick="loadContent('thoughts')"><b>碎碎念</b></a>
+      <a href="#" class="nav-link" onclick="loadContent('thoughts')"><b>Thoughts in a Nutshell</b></a>
       <a href="#" class="nav-link" onclick="loadContent('aboutme')"><b>About Me</b></a>
       <!-- 新增的 X 連結 -->
       <a href="https://x.com/CharlotteOTN" target="_blank" class="nav-link">
