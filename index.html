@@ -73,6 +73,13 @@
            font-size: 0.9rem; 
     }
     
+ /* 保留原本的 nav-link 樣式 */
+    .nav-link.sub {
+      display: block;
+      padding: 6px 12px;
+      text-decoration: none;
+    }
+
     .nav-link:hover, .nav-link.active {
       background: #9de0fa !important;
       color: white !important;
@@ -84,8 +91,70 @@
       font-size: 1rem;
       color: #555;
     }
-    /* ----------------------------------------------------------------------------------- */
-        /* Text Format */
+/* ------------------------------------- ⬇️ 接疊menu ------------------------------------------ */
+
+.toggle-btn {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  background: transparent;           /* 改成透明，跟原本一樣 */
+  border: none;
+  color: inherit;
+  font-size: inherit;                /* 繼承原本字型大小 */
+  font-weight: bold;                 /* 跟 section-title 一樣粗 */
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: inherit;              /* 確保字型統一 */
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* 二級特別調整（基礎語法） */
+.level2 {
+  font-weight: normal;               /* 二級不用太粗 */
+  padding-left: 20px;
+  font-size: 1em;
+}
+
+/* 箭頭樣式 */
+.arrow {
+  transition: transform 0.3s ease;
+  margin-left: 8px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+.toggle-btn.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* 子選單統一縮排 */
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  padding-left: 16px;
+  margin-top: 2px;
+}
+
+.submenu.open {
+  max-height: 400px;
+}
+
+.nav-link.sub {
+  display: block;
+  padding: 6px 12px 6px 28px;   /* 增加左邊縮排，讓層級更清楚 */
+  text-decoration: none;
+  }
+
+/* ------------------------------------ ⬆️ 接疊menu end ------------------------------- */
+
+    /* ----------------------- ⬇️ 右方內容區的 Text Format ----------------------------- */
 
         .content-title {
             font-size: 1.3em;
@@ -118,7 +187,7 @@
             padding-left: 4px;
 
         }
-    /* ----------------------------------------------------------------------------------- */
+    /* ------------------------⬆️ 右方內容區的 Text Format ----------------------------------------- */
 
     .grok-icon {
       height: 0.9em;           /* 跟文字高度一致，自動適應 */
@@ -136,19 +205,33 @@
       <div class="logo">Learning Notes</div>
       
       <a href="#" class="nav-link active" onclick="loadHome()"><b>Top</b></a>
-      
-      <div class="nav-section">
-        <span class="section-title"><b>Python Notes</b></span>
-        <a href="python/basicmenu.html" class="nav-link sub">• 基礎語法</a>
-        <a href="#" class="nav-link sub" onclick="loadContent('python-automation')">• 自動化腳本</a>
-        <a href="#" class="nav-link sub" onclick="loadContent('python-projects')">• 專案實戰</a>
-      </div>
 
-      <div class="nav-section">
-        <span class="section-title"><b>MacOS Tricks</b></span>
-        <a href="#" class="nav-link sub" onclick="loadContent('mac-tricks')">• 使用技巧</a>
-        <a href="#" class="nav-link sub" onclick="loadContent('mac-automation')">• 自動化工具</a>
-      </div>
+  <!-------------------------------------- ⬇️ 接疊menu -------------------------->
+    
+     <div class="nav-section">
+  <button class="section-title toggle-btn" data-target="python-submenu">
+    <b>Python Notes</b>
+    <span class="arrow">▼</span>
+  </button>
+  <div id="python-submenu" class="submenu">
+    <a href="python/basicmenu.html" class="nav-link sub">• 基礎語法</a>
+    <a href="#" class="nav-link sub" onclick="loadContent('python-automation')">• 自動化腳本</a>
+    <a href="#" class="nav-link sub" onclick="loadContent('python-projects')">• 專案實戰</a>
+  </div>
+
+
+<div class="nav-section">
+  <button class="section-title toggle-btn" data-target="mac-submenu">
+    <b>MacOS Tricks</b>
+    <span class="arrow">▼</span>
+  </button>
+  <div id="mac-submenu" class="submenu">
+    <a href="#" class="nav-link sub" onclick="loadContent('mac-tricks')">• 使用技巧</a>
+    <a href="#" class="nav-link sub" onclick="loadContent('mac-automation')">• 自動化工具</a>
+  </div>
+</div>
+   <!-------------------------------------- ⬆️ 接疊menu -------------------------->
+
 
       <a href="#" class="nav-link" onclick="loadContent('thoughts')"><b>碎碎念</b></a>
       <a href="#" class="nav-link" onclick="loadContent('aboutme')"><b>About Me</b></a>
@@ -215,5 +298,23 @@
       // 切換 active 狀態
       document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
     }
+
+    // ==================== 新增：折疊式選單 (Accordion) ====================
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleButtons = document.querySelectorAll('.toggle-btn');
+      
+      toggleButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-target');
+          const submenu = document.getElementById(targetId);
+          
+          if (!submenu) return;
+          
+          // 切換當前選單的展開/收合
+          const isOpen = submenu.classList.toggle('open');
+          btn.classList.toggle('active', isOpen);
+        });
+      });
+    });
 </script>
 </html>

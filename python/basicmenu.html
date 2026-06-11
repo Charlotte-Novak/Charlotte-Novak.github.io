@@ -17,7 +17,7 @@
             display: flex;
         }
 
-        /* Text Format */
+    /* ----------------------- ⬇️ 右方內容區的 Text Format ----------------------------- */
 
         .content-title {
             font-size: 1.3em;
@@ -50,6 +50,7 @@
             padding-left: 4px;
 
         }
+    /* ------------------------ ⬆️ 右方內容區的 Text Format ----------------------------------------- */
 
         /* 統一移除所有連結底線 */
         a {
@@ -109,6 +110,93 @@
             color: #555;
         }
 
+/* ----------------- ⬇️ 接疊menu ------------------------------------------------------ */
+
+.section-title {
+  display: block;
+  padding: 10px 12px;
+  font-weight: bold;
+  font-size: 1.05em;
+  color: inherit;
+}
+
+.toggle-btn {
+  width: 100%;
+  text-align: left;
+  padding: 9px 12px;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.02em;           /* 跟 section-title 接近 */
+  font-weight: 600;            /* 稍微粗一點 */
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: inherit;
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.level2 {
+  padding-left: 20px !important;
+  font-weight: 500;
+}
+
+/* 三級內容 */
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  padding-left: 12px;
+  margin-top: 3px;
+}
+
+.submenu.open {
+  max-height: 350px;
+}
+
+.level3 {
+  padding-left: 35px;
+}
+
+/* 三級內容 */
+.level3-link {
+  display: block;
+  padding: 5px 12px;
+  font-size: 0.98em;
+  color: inherit;           /* 改成繼承原本顏色 */
+  font-weight: normal;
+}
+
+.level3-link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* 箭頭 */
+.arrow {
+  transition: transform 0.3s ease;
+  font-size: 0.9em;
+  opacity: 0.85;
+}
+
+.toggle-btn.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* 一般子連結（如果還有其他） */
+.nav-link.sub {
+  display: block;
+  text-decoration: none;
+}
+
+/* --------------------- ⬆️ 接疊menu end ---------------------------------------------------------- */
+
+
         /* 右側內容 */
         main {
             flex: 1;
@@ -132,14 +220,28 @@
 
         <a href="../index.html" class="nav-link active"><b>Top</b></a>
 
-        <div class="nav-section">
-            <span class="section-title"><b>Python Notes</b></span>
-            <a href="#" class="nav-link sub" onclick="loadContent('beginning')">• 基礎語法</a>
-            <a href="#" class="nav-link sub" onclick="loadContent('beginning')">Beginning</a>
-            <a href="#" class="nav-link sub" onclick="loadContent('02')">02</a>
-            <a href="#" class="nav-link sub" onclick="loadContent('03')">03</a>
-            <a href="#" class="nav-link sub" onclick="loadContent('04')">04</a>
-        </div>
+  <!-------------------------------------- ⬇️ 接疊menu -------------------------->
+
+<div class="nav-section">
+  <span class="section-title"><b>Python Notes</b></span>
+  
+  <!-- 二級 -->
+  <button class="nav-link sub toggle-btn level2" data-target="basic-submenu">
+    • 基礎語法
+    <span class="arrow">▼</span>
+  </button>
+  
+  <!-- 三級 -->
+  <div id="basic-submenu" class="submenu level3">
+    <a href="#" class="nav-link sub level3-link" onclick="loadContent('beginning')">Beginning</a>
+    <a href="#" class="nav-link sub level3-link" onclick="loadContent('02')">02</a>
+    <a href="#" class="nav-link sub level3-link" onclick="loadContent('03')">03</a>
+    <a href="#" class="nav-link sub level3-link" onclick="loadContent('04')">04</a>
+  </div>
+</div>
+
+   <!-------------------------------------- ⬆️ 接疊menu -------------------------->
+
     </nav>
 
     <!-- 右側主要內容 -->
@@ -149,30 +251,47 @@
         </div>
     </main>
 
-    <script>
-        function loadContent(page) {
-            const contentArea = document.getElementById("main-content");
-            contentArea.innerHTML = `<p>正在載入 ${page}...</p>`;
+<script>
+    function loadContent(page) {
+        const contentArea = document.getElementById("main-content");
+        contentArea.innerHTML = `<p>正在載入 ${page}...</p>`;
 
-            fetch(`./${page}.html`)
-                .then(response => {
-                    if (!response.ok) throw new Error("檔案不存在");
-                    return response.text();
-                })
-                .then(html => {
-                    contentArea.innerHTML = html;
-                })
-                .catch(err => {
-                    contentArea.innerHTML = `
-                        <h2>內容開發中...</h2>
-                        <p>「${page}」的內容正在準備中～</p>
-                    `;
-                    console.error(err);
-                });
-        }
+        fetch(`./${page}.html`)
+            .then(response => {
+                if (!response.ok) throw new Error("檔案不存在");
+                return response.text();
+            })
+            .then(html => {
+                contentArea.innerHTML = html;
+            })
+            .catch(err => {
+                contentArea.innerHTML = `
+                    <h2>內容開發中...</h2>
+                    <p>「${page}」的內容正在準備中～</p>
+                `;
+                console.error(err);
+            });
+    }
 
+    // ==================== 折疊選單 ====================
+    document.addEventListener('DOMContentLoaded', () => {
         // 頁面載入後自動顯示 beginning
-        document.addEventListener('DOMContentLoaded', () => loadContent('beginning'));
-    </script>
+        loadContent('beginning');
+
+        // 只給 toggle-btn 綁定事件
+        document.querySelectorAll('.toggle-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-target');
+                const submenu = document.getElementById(targetId);
+                
+                if (!submenu) return;
+
+                const isOpen = submenu.classList.toggle('open');
+                btn.classList.toggle('active', isOpen);
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
