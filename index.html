@@ -84,6 +84,41 @@
       font-size: 1rem;
       color: #555;
     }
+    /* ----------------------------------------------------------------------------------- */
+        /* Text Format */
+
+        .content-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 1.5em;   /* 控制段落之間的空行 */
+            font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif; /* 防止意外 */
+
+            /* 半透明白色背景 + 圓角 + 陰影（如果之後想開）*/
+            background: rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .main-font {
+            font-size: 0.9em;
+            margin-bottom: 1.5em;   /* 控制段落之間的空行 */
+            font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif;
+
+            /* 半透明白色背景 + 圓角 + 陰影（如果之後想開） */
+            background: rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .main-font li {
+            margin-bottom: 30px;           /* 每個list項目之間的間距 */
+            line-height: 1.5;              /* 行高，讓文字舒服一點 */
+            padding-left: 4px;
+
+        }
+    /* ----------------------------------------------------------------------------------- */
 
     .grok-icon {
       height: 0.9em;           /* 跟文字高度一致，自動適應 */
@@ -116,7 +151,7 @@
       </div>
 
       <a href="#" class="nav-link" onclick="loadContent('thoughts')"><b>碎碎念</b></a>
-      <a href="#" class="nav-link" onclick="loadContent('about')"><b>About Me</b></a>
+      <a href="#" class="nav-link" onclick="loadContent('aboutme')"><b>About Me</b></a>
       <!-- 新增的 X 連結 -->
       <a href="https://x.com/CharlotteOTN" target="_blank" class="nav-link">
         <img src="images/x-logo.jpg" 
@@ -148,28 +183,37 @@
     </main>
   </div>
 
-   <script>
+<script>
     // 保存最初的首頁內容
     let homeContent = document.getElementById('main-content').innerHTML;
 
     function loadHome() {
       document.getElementById('main-content').innerHTML = homeContent;
       
-      // 清除其他 active，只保留首頁
       document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.remove('active');
       });
-      // 給首頁加上 active
       document.querySelector('a[onclick="loadHome()"]').classList.add('active');
     }
 
     function loadContent(page) {
       const content = document.getElementById('main-content');
-      content.innerHTML = `<h1>${page}</h1><p>內容開發中...</p>`;
       
-      // 切換 active
+      fetch(`${page}.html`)
+        .then(response => {
+          if (!response.ok) throw new Error("檔案不存在");
+          return response.text();
+        })
+        .then(html => {
+          content.innerHTML = html;
+        })
+        .catch(err => {
+          content.innerHTML = `<h1>${page}</h1><p>內容開發中...</p>`;
+          console.error(err);
+        });
+      
+      // 切換 active 狀態
       document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
     }
-  </script>
-
+</script>
 </html>
