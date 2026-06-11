@@ -8,34 +8,24 @@
   <meta name="author" content="Charlotte Novak">
   <title>Charlotte Novak's Python Notes</title>
   
-  <!-- 你的 style 在這裡 -->
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: "Baskerville", 
-                 -apple-system, 
-                 BlinkMacSystemFont, 
-                 "Segoe UI", 
-                 Roboto, 
-                 serif;   /* 最後保底改成 serif 比較保險 */
+      font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif;
       background: url('images/Feather.jpg?20250609') no-repeat center center fixed !important;
       background-size: cover !important;
       color: #333;
       line-height: 1.6;
       min-height: 100vh;
+      display: flex;
     }
 
-  /* 如果想確保連結也一定用相同字型（保險起見） */
-    a {
-      font-family: inherit;   /* 直接繼承 body 的設定 */
-    }
-    
-    .container { display: flex; min-height: 100vh; }
+    a { font-family: inherit; }
 
     .sidebar {
       width: 320px;
-      background: rgba(255,255,255,0.1) !important;   /* 更透明 */
+      background: rgba(255,255,255,0.1) !important;
       backdrop-filter: blur(6px);
       padding: 24px 0;
       border-right: 1px solid rgba(255,255,255,0.1);
@@ -43,13 +33,6 @@
       height: 100vh;
       overflow-y: auto;
       z-index: 10;
-    }
-
-    .content {
-      flex: 1;
-      margin-left: 320px;
-      padding: 40px;
-      background: rgba(255,255,255,0.2) !important;   /* 也更透明 */
     }
 
     .logo { 
@@ -65,19 +48,8 @@
       padding: 10px 20px;
       color: #333;
       text-decoration: none;
-      font-size: 1rem; 
+      font-size: 1rem;
       transition: all 0.2s;
-    }
-
-     .sub { padding-left: 40px; 
-           font-size: 0.9rem; 
-    }
-    
- /* 保留原本的 nav-link 樣式 */
-    .nav-link.sub {
-      display: block;
-      padding: 6px 12px;
-      text-decoration: none;
     }
 
     .nav-link:hover, .nav-link.active {
@@ -85,250 +57,229 @@
       color: white !important;
     }
 
+    .sub { padding-left: 40px; font-size: 0.9rem; }
+
     .section-title {
       display: block;
       padding: 8px 20px 4px;
       font-size: 1rem;
       color: #555;
     }
-/* ------------------------------------- ⬇️ 接疊menu ------------------------------------------ */
 
-.toggle-btn {
-  width: 100%;
-  text-align: left;
-  padding: 10px 12px;
-  background: transparent;           /* 改成透明，跟原本一樣 */
-  border: none;
-  color: inherit;
-  font-size: inherit;                /* 繼承原本字型大小 */
-  font-weight: bold;                 /* 跟 section-title 一樣粗 */
-  cursor: pointer;
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: inherit;              /* 確保字型統一 */
-}
+    /* --------------- 折疊選單 --------------------------------- */
+    .toggle-btn {
+      width: 100%;
+      text-align: left;
+      padding: 10px 12px;
+      background: transparent;
+      border: none;
+      color: inherit;
+      font-size: inherit;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: inherit;
+    }
 
-.toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
+    .toggle-btn:hover { background: rgba(255, 255, 255, 0.1); }
 
-/* 二級特別調整（基礎語法） */
-.level2 {
-  font-weight: normal;               /* 二級不用太粗 */
-  padding-left: 20px;
-  font-size: 1em;
-}
+    .arrow {
+      transition: transform 0.3s ease;
+      margin-left: 8px;
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
 
-/* 箭頭樣式 */
-.arrow {
-  transition: transform 0.3s ease;
-  margin-left: 8px;
-  font-size: 0.9em;
-  opacity: 0.8;
-}
+    .toggle-btn.active .arrow { transform: rotate(180deg); }
 
-.toggle-btn.active .arrow {
-  transform: rotate(180deg);
-}
+    .submenu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      padding-left: 16px;
+      margin-top: 2px;
+    }
 
-/* 子選單統一縮排 */
-.submenu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
-  padding-left: 16px;
-  margin-top: 2px;
-}
+    .submenu.open { max-height: 400px; }
 
-.submenu.open {
-  max-height: 400px;
-}
+    .nav-link.sub {
+      display: block;
+      padding: 6px 12px 6px 28px;
+      text-decoration: none;
+    }
 
-.nav-link.sub {
-  display: block;
-  padding: 6px 12px 6px 28px;   /* 增加左邊縮排，讓層級更清楚 */
-  text-decoration: none;
-  }
+    /* ----------------------- 右側內容區 --------------------------- */
+    main {
+      flex: 1;
+      margin-left: 320px;
+      padding: 40px;
+      overflow-y: auto;
+    }
 
-/* ------------------------------------ ⬆️ 接疊menu end ------------------------------- */
+    .content-box {
+      max-width: 1000px;
+      margin-left: 200px;
+      padding: 40px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.3);
+    }
 
-    /* ----------------------- ⬇️ 右方內容區的 Text Format ----------------------------- */
+    .content-title,
+    .main-font {
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-bottom: 1.5em;
+      font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif;
+      /*
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);  */
+    }
 
-        .content-title {
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-bottom: 1.5em;   /* 控制段落之間的空行 */
-            font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif; /* 防止意外 */
+    .main-font {
+      font-size: 0.9em;
+      font-weight: normal;
+    }
 
-            /* 半透明白色背景 + 圓角 + 陰影（如果之後想開）*/
-            background: rgba(255, 255, 255, 0.2);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .main-font {
-            font-size: 0.9em;
-            margin-bottom: 1.5em;   /* 控制段落之間的空行 */
-            font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif;
-
-            /* 半透明白色背景 + 圓角 + 陰影（如果之後想開） */
-            background: rgba(255, 255, 255, 0.3);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .main-font li {
-            margin-bottom: 30px;           /* 每個list項目之間的間距 */
-            line-height: 1.5;              /* 行高，讓文字舒服一點 */
-            padding-left: 4px;
-
-        }
-
-         /* 右側內容 */
-        main {
-            flex: 1;
-            margin-left: 450px;
-            padding: 40px;
-            overflow-y: auto;
-        }
-
-        .content-box {
-            max-width: 1000px;
-            padding: 40px;
-            border-radius: 16px;
-        }
-    /* ------------------------⬆️ 右方內容區的 Text Format ----------------------------------------- */
+    .main-font li {
+      margin-bottom: 30px;
+      line-height: 1.5;
+      padding-left: 4px;
+    }
 
     .grok-icon {
-      height: 0.9em;           /* 跟文字高度一致，自動適應 */
+      height: 0.9em;
       width: auto;
-      vertical-align: middle;  /* 垂直置中 */
-      margin: 0 1px;           /* 左右留一點間距 */
+      vertical-align: middle;
+      margin: 0 1px;
       display: inline-block;
     }
-    
   </style>
 </head>
 <body>
-  <div class="container">
-    <nav class="sidebar">
-      <div class="logo">Learning Notes</div>
-      
-      <a href="#" class="nav-link active" onclick="loadHome()"><b>Top</b></a>
 
-  <!-------------------------------------- ⬇️ 接疊menu -------------------------->
+  <nav class="sidebar">
+    <div class="logo">Learning Notes</div>
     
-     <div class="nav-section">
-  <button class="section-title toggle-btn" data-target="python-submenu">
-    <b>Python Notes</b>
-    <span class="arrow">▼</span>
-  </button>
-  <div id="python-submenu" class="submenu">
-    <a href="python/basicmenu.html" class="nav-link sub">• 基礎語法</a>
-    <a href="#" class="nav-link sub" onclick="loadContent('python-automation')">• 自動化腳本</a>
-    <a href="#" class="nav-link sub" onclick="loadContent('python-projects')">• 專案實戰</a>
-  </div>
+    <a href="#" class="nav-link active" onclick="loadHome()"><b>Top</b></a>
 
+    <div class="nav-section">
+      <button class="section-title toggle-btn" data-target="python-submenu">
+        <b>Python Notes</b>
+        <span class="arrow">▼</span>
+      </button>
+      <div id="python-submenu" class="submenu">
+        <a href="python/basicmenu.html" class="nav-link sub">• 基礎語法</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('python-automation')">• 自動化腳本</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('python-projects')">• 專案實戰</a>
+      </div>
+    </div>
 
-<div class="nav-section">
-  <button class="section-title toggle-btn" data-target="mac-submenu">
-    <b>MacOS Tricks</b>
-    <span class="arrow">▼</span>
-  </button>
-  <div id="mac-submenu" class="submenu">
-    <a href="#" class="nav-link sub" onclick="loadContent('mac-tricks')">• 使用技巧</a>
-    <a href="#" class="nav-link sub" onclick="loadContent('mac-automation')">• 自動化工具</a>
-  </div>
-</div>
-   <!-------------------------------------- ⬆️ 接疊menu -------------------------->
+    <div class="nav-section">
+      <button class="section-title toggle-btn" data-target="mac-submenu">
+        <b>MacOS Tricks</b>
+        <span class="arrow">▼</span>
+      </button>
+      <div id="mac-submenu" class="submenu">
+        <a href="#" class="nav-link sub" onclick="loadContent('mac-tricks')">• 使用技巧</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('mac-automation')">• 自動化工具</a>
+      </div>
+    </div>
 
-
-      <a href="#" class="nav-link" onclick="loadContent('thoughts')"><b>Thoughts in a Nutshell</b></a>
-      <a href="#" class="nav-link" onclick="loadContent('aboutme')"><b>About Me</b></a>
-      <!-- 新增的 X 連結 -->
-      <a href="https://x.com/CharlotteOTN" target="_blank" class="nav-link">
-        <img src="images/x-logo.jpg" 
-         alt="X" 
-         style="height: 1.35em; width: auto; vertical-align: middle; margin-right: 6px;">
-        X / Twitter
-      </a>
-    </nav>
-
-    <main class="content" id="main-content">
-      <h1>In learning's sea, no shore in sight,</h1>
-      <h1>Turn back, and land is pure delight.</h1>
-      
-      <br><br><br><br><br><br><br><br><br><br><br><br><br>
-      
-      <p style="background-color: rgba(255, 255, 255, 0.3); padding: 10px; line-height: 1.5;">
-    Python筆記，MacOS Tricks 實驗，以及跟 
-    <a href="https://grok.com/" target="_blank" style="text-decoration: none;">
-        <img src="images/icon-192.png" 
-             class="grok-icon" 
-             alt="Grok">
+    <a href="#" class="nav-link" onclick="loadContent('thoughts')"><b>Thoughts in a Nutshell</b></a>
+    <a href="#" class="nav-link" onclick="loadContent('aboutme')"><b>About Me</b></a>
+    
+    <a href="https://x.com/CharlotteOTN" target="_blank" class="nav-link">
+      <img src="images/x-logo.jpg" alt="X" style="height: 1.35em; width: auto; vertical-align: middle; margin-right: 6px;">
+      X / Twitter
     </a>
-    之間的各種吐槽日常。
-</p>
+  </nav>
 
-<p style="background-color: rgba(255, 255, 255, 0.3); padding: 10px;">
-    網站正在逐步完善中～
-</p>
-    </main>
-  </div>
+  <main>
+    <br><br>
+    <div id="main-content" class="content-box">
+      <!-- top.html 會自動載入這裡 -->
+    </div>
+  </main>
 
-<script>
-    // 保存最初的首頁內容
-    let homeContent = document.getElementById('main-content').innerHTML;
+  <script>
+    // ==================== 全域變數 ====================
+    let homeContent = '';   // 用來保存 top.html 的原始內容，供 loadHome() 切換使用
 
-    function loadHome() {
-      document.getElementById('main-content').innerHTML = homeContent;
+    // ==================== 載入首頁 (Top) ====================
+    function loadTop() {
+      const contentArea = document.getElementById('main-content');
       
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-      });
-      document.querySelector('a[onclick="loadHome()"]').classList.add('active');
-    }
-
-    function loadContent(page) {
-      const content = document.getElementById('main-content');
-      
-      fetch(`${page}.html`)
-        .then(response => {
-          if (!response.ok) throw new Error("檔案不存在");
-          return response.text();
+      fetch('top.html')
+        .then(r => {
+          if (!r.ok) throw new Error('top.html 載入失敗');
+          return r.text();
         })
         .then(html => {
-          content.innerHTML = html;
+          contentArea.innerHTML = html;
+          homeContent = html;           // 保存內容
         })
-        .catch(err => {
-          content.innerHTML = `<h1>${page}</h1><p>內容開發中...</p>`;
-          console.error(err);
+        .catch(() => {
+          contentArea.innerHTML = `<h1>Top</h1><p>top.html 載入失敗，請確認檔案存在。</p>`;
         });
-      
-      // 切換 active 狀態
-      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
     }
 
-    // ==================== 新增：折疊式選單 (Accordion) ====================
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggleButtons = document.querySelectorAll('.toggle-btn');
+    // ==================== 點擊「Top」時切換回首頁 ====================
+    function loadHome() {
+      if (homeContent) {
+        document.getElementById('main-content').innerHTML = homeContent;
+      }
+      updateActive('loadHome');
+    }
+
+    // ==================== 載入其他頁面內容 (python-automation、thoughts 等) ====================
+    function loadContent(page) {
+      const contentArea = document.getElementById('main-content');
       
-      toggleButtons.forEach(btn => {
+      fetch(`${page}.html`)
+        .then(r => {
+          if (!r.ok) throw new Error('檔案不存在');
+          return r.text();
+        })
+        .then(html => {
+          contentArea.innerHTML = html;
+        })
+        .catch(() => {
+          contentArea.innerHTML = `<h1>${page}</h1><p>內容開發中...</p>`;
+        });
+      
+      updateActive(page);
+    }
+
+    // ==================== 更新左側選單的 active 狀態 ====================
+    function updateActive(identifier) {
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (identifier === 'loadHome' && link.getAttribute('onclick')?.includes('loadHome')) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // ==================== 頁面初始化 ====================
+    document.addEventListener('DOMContentLoaded', () => {
+      loadTop();                    // 頁面載入時自動載入 top.html
+
+      // 折疊選單功能
+      document.querySelectorAll('.toggle-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          const targetId = btn.getAttribute('data-target');
-          const submenu = document.getElementById(targetId);
-          
-          if (!submenu) return;
-          
-          // 切換當前選單的展開/收合
-          const isOpen = submenu.classList.toggle('open');
-          btn.classList.toggle('active', isOpen);
+          const target = document.getElementById(btn.dataset.target);
+          if (target) {
+            const isOpen = target.classList.toggle('open');
+            btn.classList.toggle('active', isOpen);
+          }
         });
       });
     });
-</script>
+  </script>
+</body>
 </html>

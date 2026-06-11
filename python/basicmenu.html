@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Notes</title>
+    <title>Python Notes - 基礎語法</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -16,53 +16,6 @@
             min-height: 100vh;
             display: flex;
         }
-
-    /* ----------------------- ⬇️ 右方內容區的 Text Format ----------------------------- */
-
-        .content-title {
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-bottom: 1.5em;   /* 控制段落之間的空行 */
-            font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif; /* 防止意外 */
-
-            /* 半透明白色背景 + 圓角 + 陰影（如果之後想開）*/
-            background: rgba(255, 255, 255, 0.2);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .main-font {
-            font-size: 0.9em;
-            margin-bottom: 1.5em;   /* 控制段落之間的空行 */
-            font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif;
-
-            /* 半透明白色背景 + 圓角 + 陰影（如果之後想開） */
-            background: rgba(255, 255, 255, 0.3);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .main-font li {
-            margin-bottom: 30px;           /* 每個list項目之間的間距 */
-            line-height: 1.5;              /* 行高，讓文字舒服一點 */
-            padding-left: 4px;
-
-        }
-    /* ------------------------ ⬆️ 右方內容區的 Text Format ----------------------------------------- */
-
-        /* 統一移除所有連結底線 */
-        a {
-            text-decoration: none;
-            color: #f67300;           /* 你想要的顏色，可以調整 */
-        }
-
-        /* hover 時再顯示底線（比較好看） */
-        a:hover {
-            text-decoration: underline;
-        }
-
 
         .sidebar {
             width: 320px;
@@ -93,205 +46,193 @@
             transition: all 0.2s;
         }
 
-        .sub { 
-            padding-left: 40px; 
-            font-size: 0.9rem; 
-        }
-
-        .nav-link:hover, .nav-link.active {
+        /* 統一 hover & active 樣式（Top 和其他連結都適用） */
+        .nav-link:hover, 
+        .nav-link.active,
+        .toggle-btn:hover,
+        .toggle-btn.active {
             background: #9de0fa !important;
             color: white !important;
         }
 
+        /* ==================== 選單層級樣式 ==================== */
         .section-title {
             display: block;
-            padding: 8px 20px 4px;
-            font-size: 1rem;
-            color: #555;
+            padding: 10px 20px 6px;
+            font-size: 1.05em;
+            font-weight: bold;
+            color: #333;
+            margin-top: 8px;
         }
 
-/* ----------------- ⬇️ 接疊menu ------------------------------------------------------ */
+        /* 第2級 - 基礎語法 */
+        .toggle-btn.level2 {
+            padding: 9px 20px 9px 40px !important;
+            font-weight: 600;
+            font-size: 1em;
+            color: #222;
+            width: 100%;
+            text-align: left;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.section-title {
-  display: block;
-  padding: 10px 12px;
-  font-weight: bold;
-  font-size: 1.05em;
-  color: inherit;
-}
+        /* 第3級 */
+        .level3-link {
+            display: block;
+            padding: 6px 20px 6px 60px !important;
+            font-size: 0.95em;
+            color: #444;
+            font-weight: normal;
+        }
 
-.toggle-btn {
-  width: 100%;
-  text-align: left;
-  padding: 9px 12px;
-  background: transparent;
-  border: none;
-  color: inherit;
-  font-size: 1em;           /* 跟 section-title 接近 */
-  font-weight: 600;            /* 稍微粗一點 */
-  cursor: pointer;
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: inherit;
-}
+        .level3-link:hover {
+            background: #9de0fa !important;
+            color: white !important;
+        }
 
-.toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-}
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+            margin-top: 2px;
+        }
 
-.level2 {
-  padding-left: 20px !important;
-  font-weight: 500;
-}
+        .submenu.open { max-height: 400px; }
 
-/* 三級內容 */
-.submenu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
-  padding-left: 12px;
-  margin-top: 3px;
-}
+        .arrow {
+            transition: transform 0.3s ease;
+            font-size: 0.9em;
+            opacity: 0.85;
+            margin-left: auto;
+        }
 
-.submenu.open {
-  max-height: 350px;
-}
+        .toggle-btn.active .arrow {
+            transform: rotate(180deg);
+        }
 
-.level3 {
-  padding-left: 35px;
-}
+        a { text-decoration: none; color: #f67300; }
+        a:hover { text-decoration: underline; }
 
-/* 三級內容 */
-.level3-link {
-  display: block;
-  padding: 5px 12px;
-  font-size: 0.98em;
-  color: inherit;           /* 改成繼承原本顏色 */
-  font-weight: normal;
-}
-
-.level3-link:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-/* 箭頭 */
-.arrow {
-  transition: transform 0.3s ease;
-  font-size: 0.9em;
-  opacity: 0.85;
-}
-
-.toggle-btn.active .arrow {
-  transform: rotate(180deg);
-}
-
-/* 一般子連結（如果還有其他） */
-.nav-link.sub {
-  display: block;
-  text-decoration: none;
-}
-
-/* --------------------- ⬆️ 接疊menu end ---------------------------------------------------------- */
-
-
-        /* 右側內容 */
+        /* ==================== 右側內容區 ==================== */
         main {
             flex: 1;
-            margin-left: 450px;
+            margin-left: 320px;
             padding: 40px;
             overflow-y: auto;
         }
 
         .content-box {
             max-width: 1000px;
-            padding: 40px;
+            margin-left: 200px;
+            padding: 50px;
             border-radius: 16px;
+            background: rgba(255, 255, 255, 0.3) !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            min-height: calc(100vh - 80px);
         }
+
+        /* ----------------------- 右方內容區的 Text Format ----------------------------- */
+
+.content-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 1.5em;
+    font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif;
+/*
+    background: rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);  */
+}
+
+.main-font {
+    font-size: 0.9em;
+    margin-bottom: 1.5em;
+    font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif;
+/*
+    background: rgba(255, 255, 255, 0.3);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);  */
+}
+
+.main-font li {
+    margin-bottom: 30px;
+    line-height: 1.5;
+    padding-left: 4px;
+}
+
+/* ------------------------ 右方內容區的 Text Format end ----------------------------------------- */
     </style>
 </head>
 <body>
 
-    <!-- 左側導航 -->
     <nav class="sidebar">
         <div class="logo">Learning Notes</div>
 
-        <a href="../index.html" class="nav-link active"><b>Top</b></a>
+        <a href="../index.html" class="nav-link"><b>Top</b></a>
 
-  <!-------------------------------------- ⬇️ 接疊menu -------------------------->
-
-<div class="nav-section">
-  <span class="section-title"><b>Python Notes</b></span>
-  
-  <!-- 二級 -->
-  <button class="nav-link sub toggle-btn level2" data-target="basic-submenu">
-    • 基礎語法
-    <span class="arrow">▼</span>
-  </button>
-  
-  <!-- 三級 -->
-  <div id="basic-submenu" class="submenu level3">
-    <a href="#" class="nav-link sub level3-link" onclick="loadContent('beginning')">Beginning</a>
-    <a href="#" class="nav-link sub level3-link" onclick="loadContent('02')">02</a>
-    <a href="#" class="nav-link sub level3-link" onclick="loadContent('03')">03</a>
-    <a href="#" class="nav-link sub level3-link" onclick="loadContent('04')">04</a>
-  </div>
-</div>
-
-   <!-------------------------------------- ⬆️ 接疊menu -------------------------->
-
+        <div class="nav-section">
+            <span class="section-title"><b>Python Notes</b></span>
+            
+            <!-- 第2級 -->
+            <button class="toggle-btn level2" data-target="basic-submenu">
+                • 基礎語法
+                <span class="arrow">▼</span>
+            </button>
+            
+            <!-- 第3級 -->
+            <div id="basic-submenu" class="submenu">
+                <a href="#" class="level3-link" onclick="loadContent('beginning')">Beginning</a>
+                <a href="#" class="level3-link" onclick="loadContent('02')">02</a>
+                <a href="#" class="level3-link" onclick="loadContent('03')">03</a>
+                <a href="#" class="level3-link" onclick="loadContent('04')">04</a>
+            </div>
+        </div>
     </nav>
 
-    <!-- 右側主要內容 -->
     <main>
-        <div id="main-content" class="content-box">
-            <!-- JS 會自動載入 beginning.html -->
-        </div>
+        <br><br>
+        <div id="main-content" class="content-box"></div>
     </main>
 
-<script>
-    function loadContent(page) {
-        const contentArea = document.getElementById("main-content");
-        contentArea.innerHTML = `<p>正在載入 ${page}...</p>`;
+    <script>
+        function loadContent(page) {
+            const contentArea = document.getElementById("main-content");
+            contentArea.innerHTML = `<p style="text-align:center; padding:40px;">正在載入 ${page}...</p>`;
 
-        fetch(`./${page}.html`)
-            .then(response => {
-                if (!response.ok) throw new Error("檔案不存在");
-                return response.text();
-            })
-            .then(html => {
-                contentArea.innerHTML = html;
-            })
-            .catch(err => {
-                contentArea.innerHTML = `
-                    <h2>內容開發中...</h2>
-                    <p>「${page}」的內容正在準備中～</p>
-                `;
-                console.error(err);
-            });
-    }
+            fetch(`./${page}.html`)
+                .then(response => {
+                    if (!response.ok) throw new Error("檔案不存在");
+                    return response.text();
+                })
+                .then(html => contentArea.innerHTML = html)
+                .catch(err => {
+                    contentArea.innerHTML = `<h2>內容開發中...</h2><p>「${page}」的內容正在準備中～</p>`;
+                    console.error(err);
+                });
+        }
 
-    // ==================== 折疊選單 ====================
-    document.addEventListener('DOMContentLoaded', () => {
-        // 頁面載入後自動顯示 beginning
-        loadContent('beginning');
+        document.addEventListener('DOMContentLoaded', () => {
+            loadContent('beginning');
 
-        // 只給 toggle-btn 綁定事件
-        document.querySelectorAll('.toggle-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const targetId = btn.getAttribute('data-target');
-                const submenu = document.getElementById(targetId);
-                
-                if (!submenu) return;
+            // 折疊選單
+            document.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-target');
+                    const submenu = document.getElementById(targetId);
+                    if (!submenu) return;
 
-                const isOpen = submenu.classList.toggle('open');
-                btn.classList.toggle('active', isOpen);
+                    const isOpen = submenu.classList.toggle('open');
+                    btn.classList.toggle('active', isOpen);
+                });
             });
         });
-    });
-</script>
-
+    </script>
 </body>
 </html>
