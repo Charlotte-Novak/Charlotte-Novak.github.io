@@ -1,70 +1,240 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    /* ------------------------------index--------------------------------------------- */
 
 
-.container {
-  display: flex;
-  min-height: 100vh;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-.sidebar {
-  width: 260px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
-  padding: 20px 0;
-  border-right: 1px solid #ddd;
-  overflow-y: auto;
-}
+    body {
+      font-family: "Baskerville", 
+                 -apple-system, 
+                 BlinkMacSystemFont, 
+                 "Segoe UI", 
+                 Roboto, 
+                 serif;   /* 最後保底改成 serif 比較保險 */
+      background: url('images/Feather.jpg?20250609') no-repeat center center fixed !important;
+      background-size: cover !important;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
 
-.content {
-  flex: 1;
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.95);
-  overflow-y: auto;
-}
+  /* 如果想確保連結也一定用相同字型（保險起見） */
+    a {
+      font-family: inherit;   /* 直接繼承 body 的設定 */
+    }
+    
+    .container { display: flex; min-height: 100vh; }
 
-.logo {
-  font-size: 1.4rem;
-  font-weight: bold;
-  padding: 0 20px 20px;
-  border-bottom: 1px solid #eee;
-  margin-bottom: 20px;
-}
+    .sidebar {
+      width: 280px;
+      background: rgba(255,255,255,0.1) !important;   /* 更透明 */
+      backdrop-filter: blur(6px);
+      padding: 24px 0;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 10;
+    }
 
-.nav-link {
-  display: block;
-  padding: 10px 20px;
-  color: #333;
-  text-decoration: none;
-  transition: all 0.2s;
-}
+    .content {
+      flex: 1;
+      margin-left: 280px;
+      padding: 40px;
+      background: rgba(255,255,255,0.2) !important;   /* 也更透明 */
+    }
 
-.nav-link:hover, .nav-link.active {
-  background: #4A6CF7;
-  color: white;
-}
+    .logo { 
+      font-size: 1.3rem; 
+      font-weight: bold; 
+      padding: 0 20px 24px; 
+      border-bottom: 1px solid rgba(0,0,0,0.1); 
+      margin-bottom: 20px; 
+    }
 
-.section-title {
-  display: block;
-  padding: 8px 20px 4px;
-  font-size: 0.9rem;
-  color: #666;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
+    .nav-link {
+      display: block;
+      padding: 10px 20px;
+      color: #333;
+      text-decoration: none;
+      font-size: 1rem; 
+      transition: all 0.2s;
+    }
 
-.sub {
-  padding-left: 35px;
-  font-size: 0.95rem;
-}
+     .sub { padding-left: 40px; 
+           font-size: 0.9rem; 
+    }
+    
+    .nav-link:hover, .nav-link.active {
+      background: #9de0fa !important;
+      color: white !important;
+    }
 
-/* 深色模式支援 */
-@media (prefers-color-scheme: dark) {
-  .sidebar, .content {
-    background: rgba(30, 30, 30, 0.92);
-    color: #ddd;
-  }
-}
+    .section-title {
+      display: block;
+      padding: 8px 20px 4px;
+      font-size: 1rem;
+      color: #555;
+    }
+    /* ----------------------------------------------------------------------------------- */
+        /* Text Format */
+
+        .content-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 1.5em;   /* 控制段落之間的空行 */
+            font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif; /* 防止意外 */
+
+            /* 半透明白色背景 + 圓角 + 陰影（如果之後想開）*/
+            background: rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .main-font {
+            font-size: 0.9em;
+            margin-bottom: 1.5em;   /* 控制段落之間的空行 */
+            font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif;
+
+            /* 半透明白色背景 + 圓角 + 陰影（如果之後想開） */
+            background: rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .main-font li {
+            margin-bottom: 30px;           /* 每個list項目之間的間距 */
+            line-height: 1.5;              /* 行高，讓文字舒服一點 */
+            padding-left: 4px;
+
+        }
+    /* ----------------------------------------------------------------------------------- */
+
+    .grok-icon {
+      height: 0.9em;           /* 跟文字高度一致，自動適應 */
+      width: auto;
+      vertical-align: middle;  /* 垂直置中 */
+      margin: 0 1px;           /* 左右留一點間距 */
+      display: inline-block;
+    }
+
+    /* ------------------------------basicmenu--------------------------------------------- */
+
+    { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif;
+            background: url("https://charlotte-novak.github.io/images/Feather.jpg?20250609") no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Text Format */
+
+        .content-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 1.5em;   /* 控制段落之間的空行 */
+            font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif; /* 防止意外 */
+
+            /* 半透明白色背景 + 圓角 + 陰影（如果之後想開）*/
+            background: rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .main-font {
+            font-size: 0.9em;
+            margin-bottom: 1.5em;   /* 控制段落之間的空行 */
+            font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif;
+
+            /* 半透明白色背景 + 圓角 + 陰影（如果之後想開） */
+            background: rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .main-font li {
+            margin-bottom: 30px;           /* 每個list項目之間的間距 */
+            line-height: 1.5;              /* 行高，讓文字舒服一點 */
+            padding-left: 4px;
+
+        }
+
+        /* 統一移除所有連結底線 */
+        a {
+            text-decoration: none;
+            color: #f67300;           /* 你想要的顏色，可以調整 */
+        }
+
+        /* hover 時再顯示底線（比較好看） */
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+        .sidebar {
+            width: 280px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(6px);
+            padding: 24px 0;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 10;
+        }
+
+        .logo { 
+            font-size: 1.3rem; 
+            font-weight: bold; 
+            padding: 0 20px 24px; 
+            border-bottom: 1px solid rgba(0,0,0,0.1); 
+            margin-bottom: 20px; 
+        }
+
+        .nav-link {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .sub { 
+            padding-left: 40px; 
+            font-size: 0.9rem; 
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: #9de0fa !important;
+            color: white !important;
+        }
+
+        .section-title {
+            display: block;
+            padding: 8px 20px 4px;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* 右側內容 */
+        main {
+            flex: 1;
+            margin-left: 280px;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .content-box {
+            max-width: 1400px;
+            padding: 40px;
+            border-radius: 16px;
+        }
