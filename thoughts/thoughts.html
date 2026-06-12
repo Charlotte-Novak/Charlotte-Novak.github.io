@@ -13,7 +13,7 @@
 
     body {
       font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif;
-      background: url('images/Feather.jpg?20250609') no-repeat center center fixed !important;
+      background: url('../images/Feather.jpg') no-repeat center center fixed !important;
       background-size: cover !important;
       color: #333;
       line-height: 1.6;
@@ -165,121 +165,112 @@
   <nav class="sidebar">
     <div class="logo">Learning Notes</div>
     
-    <a href="#" class="nav-link active" onclick="loadHome()"><b>Top</b></a>
+    <a href="../index.html" class="nav-link active" onclick="loadHome()"><b>Top</b></a>
 
     <div class="nav-section">
-      <button class="section-title toggle-btn" data-target="python-submenu">
-        <b>Python Notes</b>
+      <button class="section-title toggle-btn active" data-target="python-submenu">
+        <b>Thoughts in a Nutshell</b>
         <span class="arrow">▼</span>
-      </button>
-      <div id="python-submenu" class="submenu">
-        <a href="python/basicmenu.html" class="nav-link sub">• 基礎語法</a>
+    </button>
+    <div id="python-submenu" class="submenu open">
+      
+        <a href="#" class="nav-link sub">• 基礎語法</a>
         <a href="#" class="nav-link sub" onclick="loadContent('python-automation')">• 自動化腳本</a>
         <a href="#" class="nav-link sub" onclick="loadContent('python-projects')">• 專案實戰</a>
       </div>
     </div>
-
-    <div class="nav-section">
-      <button class="section-title toggle-btn" data-target="mac-submenu">
-        <b>MacOS Tricks</b>
-        <span class="arrow">▼</span>
-      </button>
-      <div id="mac-submenu" class="submenu">
-        <a href="#" class="nav-link sub" onclick="loadContent('mac-tricks')">• 使用技巧</a>
-        <a href="#" class="nav-link sub" onclick="loadContent('mac-automation')">• 自動化工具</a>
-      </div>
-    </div>
-
-    <a href="thoughts/thoughts.html" class="nav-link" onclick="loadContent('thoughts')"><b>Thoughts in a Nutshell</b></a>
-    <a href="#" class="nav-link" onclick="loadContent('aboutme')"><b>About Me</b></a>
     
-    <a href="https://x.com/CharlotteOTN" target="_blank" class="nav-link">
-      <img src="images/x-logo.jpg" alt="X" style="height: 1.35em; width: auto; vertical-align: middle; margin-right: 6px;">
-      X / Twitter
-    </a>
   </nav>
 
   <main>
     
     <div id="main-content" class="content-box" style="margin-top: 60px; margin-bottom: 120px;">
-      <!-- top.html 會自動載入這裡 -->
+      <!-- thoughtstop.html 會自動載入這裡 -->
     </div>
   </main>
 
   <script>
-    // ==================== 全域變數 ====================
-    let homeContent = '';   // 用來保存 top.html 的原始內容，供 loadHome() 切換使用
+  // ==================== 全域變數 ====================
+  let homeContent = '';   // 用來保存 thoughtstop.html 的原始內容
 
-    // ==================== 載入首頁 (Top) ====================
-    function loadTop() {
-      const contentArea = document.getElementById('main-content');
-      
-      fetch('top.html')
-        .then(r => {
-          if (!r.ok) throw new Error('top.html 載入失敗');
-          return r.text();
-        })
-        .then(html => {
-          contentArea.innerHTML = html;
-          homeContent = html;           // 保存內容
-        })
-        .catch(() => {
-          contentArea.innerHTML = `<h1>Top</h1><p>top.html 載入失敗，請確認檔案存在。</p>`;
-        });
+  // ==================== 載入首頁 (Top) ====================
+  function loadTop() {
+    const contentArea = document.getElementById('main-content');
+    
+    fetch('thoughtstop.html')
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP error! status: ${r.status}`);
+        return r.text();
+      })
+      .then(html => {
+        contentArea.innerHTML = html;
+        homeContent = html;           // 保存內容
+      })
+      .catch(err => {
+        console.error(err);
+        contentArea.innerHTML = `<h1>載入失敗</h1><p>thoughtstop.html 載入失敗，請確認檔案存在。</p>`;
+      });
+  }
+
+  // ==================== 點擊「Top」時切換回首頁 ====================
+  function loadHome() {
+    if (homeContent) {
+      document.getElementById('main-content').innerHTML = homeContent;
     }
+    updateActive('loadHome');
+  }
 
-    // ==================== 點擊「Top」時切換回首頁 ====================
-    function loadHome() {
-      if (homeContent) {
-        document.getElementById('main-content').innerHTML = homeContent;
+  // ==================== 載入其他頁面內容 ====================
+  function loadContent(page) {
+    const contentArea = document.getElementById('main-content');
+    
+    fetch(`${page}.html`)
+      .then(r => {
+        if (!r.ok) throw new Error('檔案不存在');
+        return r.text();
+      })
+      .then(html => {
+        contentArea.innerHTML = html;
+      })
+      .catch(() => {
+        contentArea.innerHTML = `<h1>${page}</h1><p>內容開發中...</p>`;
+      });
+    
+    updateActive(page);
+  }
+
+  // ==================== 更新左側選單 active 狀態 ====================
+  function updateActive(identifier) {
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+      if (identifier === 'loadHome' && link.getAttribute('onclick')?.includes('loadHome')) {
+        link.classList.add('active');
       }
-      updateActive('loadHome');
-    }
+    });
+  }
 
-    // ==================== 載入其他頁面內容 (python-automation、thoughts 等) ====================
-    function loadContent(page) {
-      const contentArea = document.getElementById('main-content');
-      
-      fetch(`${page}.html`)
-        .then(r => {
-          if (!r.ok) throw new Error('檔案不存在');
-          return r.text();
-        })
-        .then(html => {
-          contentArea.innerHTML = html;
-        })
-        .catch(() => {
-          contentArea.innerHTML = `<h1>${page}</h1><p>內容開發中...</p>`;
-        });
-      
-      updateActive(page);
-    }
+  // ==================== 頁面初始化 ====================
+  document.addEventListener('DOMContentLoaded', () => {
+    loadTop();                    // 自動載入 thoughtstop.html
 
-    // ==================== 更新左側選單的 active 狀態 ====================
-    function updateActive(identifier) {
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-        if (identifier === 'loadHome' && link.getAttribute('onclick')?.includes('loadHome')) {
-          link.classList.add('active');
+    // ==================== 折疊選單功能（預設展開） ====================
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      const target = document.getElementById(btn.dataset.target);
+      
+      // 預設展開
+      if (target) {
+        target.classList.add('open');
+        btn.classList.add('active');
+      }
+
+      btn.addEventListener('click', () => {
+        if (target) {
+          const isOpen = target.classList.toggle('open');
+          btn.classList.toggle('active', isOpen);
         }
       });
-    }
-
-    // ==================== 頁面初始化 ====================
-    document.addEventListener('DOMContentLoaded', () => {
-      loadTop();                    // 頁面載入時自動載入 top.html
-
-      // 折疊選單功能
-      document.querySelectorAll('.toggle-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const target = document.getElementById(btn.dataset.target);
-          if (target) {
-            const isOpen = target.classList.toggle('open');
-            btn.classList.toggle('active', isOpen);
-          }
-        });
-      });
     });
-  </script>
+  });
+</script>
 </body>
 </html>
