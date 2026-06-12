@@ -21,6 +21,8 @@
       display: flex;
     }
 
+
+    
     a { font-family: inherit; }
 
     .sidebar {
@@ -158,7 +160,19 @@
       margin: 0 1px;
       display: inline-block;
     }
-  </style>
+
+    /* ==================== 新增：中文專用 LiSong Pro ==================== */
+    :lang(zh-HK), :lang(zh-TW), :lang(zh) {
+      font-family: "LiSong Pro", "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif;
+    }
+
+    /* 確保內容區強制套用 */
+    .content-box,
+    main,
+    .main-font {
+      font-family: "LiSong Pro", "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif;
+    }
+</style>
 </head>
 <body>
 
@@ -174,9 +188,9 @@
     </button>
     <div id="python-submenu" class="submenu open">
       
-        <a href="#" class="nav-link sub">• 基礎語法</a>
-        <a href="#" class="nav-link sub" onclick="loadContent('python-automation')">• 自動化腳本</a>
-        <a href="#" class="nav-link sub" onclick="loadContent('python-projects')">• 專案實戰</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('12062026')">• 12/06/2026</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('12062026')">• 12/06/2026</a>
+        <a href="#" class="nav-link sub" onclick="loadContent('12062026')">• 12/06/2026</a>
       </div>
     </div>
     
