@@ -1,0 +1,68 @@
+<p class="content-title" style="text-align: center; padding: 10px;">print( ) or print(" ")</p>
+
+<span style="font-size: 0.85em; line-height: 1.9;">
+
+<p>以下及以後的內容，次序和範圍，都建基於「Automate the Boring Stuff with Python」</p>
+
+<p>就是前期材料提到的那本書。</p>
+
+<p>筆記便是對這本書的內容，進行或註解或伸延理解。</p>
+
+<p style="margin-bottom: 50px;">關於VISUAL STUDIO CODE的界面和使用方式，記著：「問你的 AI ☘️」</p>
+
+<p style="margin-bottom: 50px;">在 PYTHON，大小階有分別，print是全小階，用大階會報 error，其他標點符號亦需為半型。</p>
+
+<!-- 第1組 -->
+<div class="code-explain">
+    <code class="code-left">print( )</code>
+    <div class="explain-right">
+        原始狀態，直接使用，會出現一行空行。
+        <p>有（ ）和（" "）兩個型態</p>
+    </div>
+</div>
+
+<!-- 第2組 -->
+<div class="code-explain">
+    <code class="code-left">print("Your words")</code>
+    <div class="explain-right">
+        在user端顯示內容，都用print
+        <p>這裡會顯示：Your words</p>
+    </div>
+</div>
+
+<!-- 第3組 -->
+<div class="code-explain">
+    <code class="code-left">print(2+2)</code>
+    <div class="explain-right">
+        <p>在user端顯示計算結果，為4 </p>
+        <p>沒有用" "包起來的數字，可被計算</p>
+    </div>
+</div>
+
+<!-- 第4組 -->
+<div class="code-explain">
+    <code class="code-left">print("2+2")</code>
+    <div class="explain-right">
+        <p>在user端顯示為 2+2 </p>
+        <p>被" "包起來的數字，會被當成是文字／字串，</p>
+        <p>即使是明晃晃的數字，也只會被直接顯示。</p>
+    </div>
+</div>
+
+<!-- 第5組 -->
+<div class="code-explain">
+    <code class="code-left">print(""" """)</code>
+    <div class="explain-right">
+        <p>三組 " " ，被包在中間的字串，會完全按照輸入的排版來顯示 </p>
+        <p>性質等同 html 中的 pre</p>
+    </div>
+</div>
+
+
+        <p style="margin-top: 50px;">
+            簡單來說，有什麼內容，需要給 user 端顯示的，都在最外層包一個 print 便行。
+        </p>
+        <p>反過來說，不包一層 print，有些情況成功執行後，會變成「無任何反應」，亦不會有任何 error 出現。</p>
+
+
+</span>

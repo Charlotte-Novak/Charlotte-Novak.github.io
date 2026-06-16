@@ -156,9 +156,10 @@
 
 .main-font {
     font-size: 0.9em;
-    margin-bottom: 1.5em;
     font-family: "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", serif;
-/*
+    display: flow-root;           /* 阻斷 margin collapse */
+
+    /*
     background: rgba(255, 255, 255, 0.3);
     padding: 40px;
     border-radius: 16px;
@@ -169,6 +170,7 @@
     margin-bottom: 30px;
     line-height: 1.7;
     padding-left: 4px;
+    display: flow-root;           /* 阻斷 margin collapse */
 }
 
 
@@ -183,9 +185,42 @@
     .main-font {
       font-family: "LiSong Pro", "Baskerville", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif;
     }
+
+ /* ===================== 右方內容局部左右並列 ======================== */
+    .code-explain {
+        display: flex;              /* 這一行最重要！讓子元素並排 */
+        align-items: center;        /* 垂直置中對齊 */
+        gap: 15px;                  /* 左右間距 */
+        flex-wrap: wrap;            /* 小螢幕時自動換行 */
+        margin: 5px 0;           /* 上下間距 */
+        padding: 4px 0;           /* 輔助用，幫助阻斷 collapse */
+    }
+
+    .code-left {
+        font-weight: bold;
+        background: rgba(255, 255, 255, 0);
+        padding: 12px 20px;
+        border-radius: 8px;
+        flex: 0 0 auto;             /* 程式碼區不被壓縮 */
+        white-space: pre;
+        border: double;
+    }
+
+    .explain-right {
+        background: rgba(1, 196, 255, 0.2);
+        padding: 12px 20px;
+        border-radius: 8px;
+        flex: 1;                    /* 佔據剩餘空間 */
+        min-width: 280px;
+        font-size: 0.9em;
+    }
+
+/* 如果想讓程式碼區固定寬度 */
+    .code-explain .code-left {
+        min-width: 320px;   /* 可依你需求調整 */
+    }
+
 /* ------------------------ 右方內容區的 Text Format end ----------------------------------------- */
-
-
     </style>
 </head>
 <body>
@@ -199,17 +234,17 @@
             <span class="section-title"><b>Python Notes</b></span>
             
             <!-- 第2級 -->
-            <button class="toggle-btn level2" data-target="basic-submenu">
+            <button class="toggle-btn level2 active" data-target="basic-submenu">
                 • 基礎語法
                 <span class="arrow">▼</span>
             </button>
             
             <!-- 第3級 -->
-            <div id="basic-submenu" class="submenu">
+            <div id="basic-submenu" class="submenu open">
                 <a href="#" class="level3-link" onclick="loadContent('beginning')">Beginning</a>
-                <a href="#" class="level3-link" onclick="loadContent('02')">02</a>
-                <a href="#" class="level3-link" onclick="loadContent('03')">03</a>
-                <a href="#" class="level3-link" onclick="loadContent('04')">04</a>
+                <a href="#" class="level3-link" onclick="loadContent('comment')">Comment</a>
+                <a href="#" class="level3-link" onclick="loadContent('print')">print</a>
+                <a href="#" class="level3-link" onclick="loadContent('calculate')">Arithmetic Operators</a>
             </div>
         </div>
     </nav>
@@ -236,21 +271,27 @@
                 });
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
+            document.addEventListener('DOMContentLoaded', () => {
             loadContent('beginning');
 
             // 折疊選單
             document.querySelectorAll('.toggle-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const targetId = btn.getAttribute('data-target');
-                    const submenu = document.getElementById(targetId);
-                    if (!submenu) return;
+                const targetId = btn.getAttribute('data-target');
+                const submenu = document.getElementById(targetId);
+        
+        // 預設展開
+            if (submenu && btn.classList.contains('active')) {
+                submenu.classList.add('open');
+                }
 
-                    const isOpen = submenu.classList.toggle('open');
-                    btn.classList.toggle('active', isOpen);
-                });
+            btn.addEventListener('click', () => {
+                if (!submenu) return;
+                const isOpen = submenu.classList.toggle('open');
+                btn.classList.toggle('active', isOpen);
             });
-        });
-    </script>
-</body>
+    });
+});
+
+        </script>
+    </body>
 </html>
