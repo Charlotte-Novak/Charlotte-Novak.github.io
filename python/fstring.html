@@ -1,0 +1,32 @@
+<p class="content-title" style="text-align: center; padding: 10px;">f-string</p>
+
+<span style="font-size: 0.85em; line-height: 1.9;">
+
+<p>f-string，是指：formatted string literal 格式化字串文字</p>
+
+<p>用來套用大量變數及字串的複雜句子時，會比用, 連接更方便，</p>
+<p>因為f-string本質就是處理字串的，可以節省大量" "及, 的使用。</p>
+<p style="margin-bottom: 50px;"></p>
+
+
+
+<h4><code>"word", 30+1, "word2"</code></h4>
+
+<p>comma 寫法（句子簡單時沒大分別）</p>
+
+<h4 style="margin-top: 40px;"><code>"word", 30+1, "word2", "word3", 32+1, "word4", "word5", 34+1, "word6", "word7", 36</code></h4>
+
+<p style="text-align: center; color: rgb(255, 20, 20); font-weight: bold;">VS</p>
+
+<h4 style="margin-bottom: 40px;"><code>f"word {30+1} word2 word3 {32+1} word4 word5 {34+1} word6 word7 {36}"</code></h4>
+
+       
+<p>用了 <strong>f"{ }"</strong> ，相同的內容，少好多符號。</p>
+
+<p><strong>f" "</strong>是外部結構，用<strong> { } </strong>把外部結構包進去的，所有不是字串的東西，再包起來。</p>
+
+<p>最後需要顯示時，用 <strong>print( )</strong>包著<strong> f" "</strong>就行，例：<strong>print(f"word {2} word")</strong></p>
+
+<p>Python看到開頭的<strong> f </strong>時，就會知道：「喔，這個字串裡面有<strong> {}</strong>，我要把它裡面的變數或表達式算出來，再組合成最終的字串。」</p>
+
+</span>

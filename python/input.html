@@ -1,0 +1,115 @@
+<p class="content-title" style="text-align: center; padding: 10px;">input : user端的輸入口</p>
+
+<span style="font-size: 0.85em; line-height: 1.9;">
+
+<p>當需要user輸入數據時（字串或數字），便會用到 input 來提供「入口」</p>
+
+<p></p>
+
+<p style="margin-bottom: 50px;"></p>
+
+
+<!-- 第1組 -->
+<div class="code-explain">
+    <code class="code-left">input( )
+input("number only")</code>
+    <div class="explain-right">
+       
+        <p>原形，括號內可以是空的。</p>
+        <p>加入提示詞，用" "包起，執行時會顯示提示：number only</p>
+    </div>
+</div>
+
+<!-- 第2組 -->
+<div class="code-explain">
+    <code class="code-left">it = input("number only") </code>
+    <div class="explain-right">
+        
+        <p>可加上變數應用，這裡 it 是變數</p>
+    </div>
+</div>
+
+<!-- 第3組 -->
+<div class="code-explain">
+    <code class="code-left">print("我今年", it, "歲了。")</code>
+    <div class="explain-right">
+       
+        <p>套上print來顯示結果</p>
+        <p>輸入數字會出現在 it 的位置，「,」用來連接函數和句子</p>
+    </div>
+</div>
+
+<!-- 第4組 -->
+<div class="code-explain">
+    <code class="code-left">int(it)</code>
+    <div class="explain-right">
+        <p>it 是變數（上方定義了內容是 input 收到的東西）。</p>
+        <p>把 it 收到的字串用 int( ) 包起來變成數字，因為 input 收到的必然是字串，即使看起來是數字。</p>
+       
+        <p></p>
+    </div>
+</div>
+
+<!-- 第5組 -->
+<div class="code-explain">
+    <code class="code-left">int(it) + 1</code>
+    <div class="explain-right">
+       
+        <p>套上 int 的結果可以用來計算，這裡是 + 1</p>
+    </div>
+</div>
+
+<!-- 第6組 -->
+<div class="code-explain">
+    <code class="code-left">print("結果是", int(it) + 1)</code>
+    <div class="explain-right">
+        
+        <p>用, 連接文字和句子，加上print來顯示</p>
+    </div>
+</div>
+
+<!-- 第7組 -->
+<div class="code-explain">
+    <code class="code-left">int(it) + 1
+str(int(it) + 1)</code>
+    <div class="explain-right">
+       
+        <p>這一組計算結果，可用str( )包起來變成不能計算的字串。</p>
+        <p>像這樣，不過套娃別超3層(這剛好3層)，後期自己也會看不懂。</p>
+    </div>
+</div>
+
+<p style="margin-top: 40px; margin-bottom: 40px; text-align: center; font-weight: 600;">需要在同一句中連接字串、計算結果、函數或其他東西時，都用半形逗號 comma，最好別用 +</p>
+
+
+<!-- 第8組 -->
+<div class="code-explain">
+    <code class="code-left">print("字", 29+1, "字")</code>
+    <div class="explain-right">
+        
+        <p>用, 連接，29+1會被計算，顯示＝字30字</p>
+    </div>
+</div>
+
+<!-- 第9組 -->
+<div class="code-explain">
+    <code class="code-left">print("字" + 29+1 + "字")</code>
+    <div class="explain-right">
+        
+        <p>用 + 連接，29+1會 error，因為字串不能跟數字相加。</p>
+    </div>
+</div>
+
+<!-- 第10組 -->
+<div class="code-explain">
+    <code class="code-left">str(29+1)</code>
+    <div class="explain-right">
+        
+        <p>用 + 連接需把 29+1 用str( )包起來變成字串，</p>
+        <p>功夫多了，所以最好別用 + 來連接</p>
+    </div>
+</div>
+
+
+
+</span>

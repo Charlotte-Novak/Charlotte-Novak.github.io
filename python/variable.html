@@ -1,0 +1,81 @@
+<p class="content-title" style="text-align: center; padding: 10px;">Variable 變數</p>
+
+<span style="font-size: 0.85em; line-height: 1.9;">
+
+<p>變數，性質跟「代名詞」很近，不過這代名詞本身的名字，也能隨你高興地改而已。</p>
+
+<p style="margin-top: 40px; margin-bottom: 20px;">但有些 rules 還是要守的：</p>
+
+<p>1．變數名不能是數字開始，但可包括數字和 「 _ 」下線 underscore（可放開首）</p>
+<p>2．數字不能起頭，因為會被當作可計算對象處理，這會引起 error</p>
+<p>3．名字的字母「會」區分大小寫，apple 和 Apple 不是同一個變數。</p>
+
+<p></p>
+
+
+<p style="margin-top: 50px;"></p>
+
+
+<!-- 第1組 -->
+<div class="code-explain">
+    <code class="code-left">he = 10</code>
+    <div class="explain-right">
+       
+        <p>he 是變數名稱，10 是它的內容，是一個可計算的數字</p>
+    </div>
+</div>
+<p style="margin-top: 40px; margin-bottom: 40px; text-align: center; font-weight: 600;">完全相同名稱的變數，有先後次序；其內容值，以最後一個為準</p>
+
+<!-- 第組 -->
+<div class="code-explain">
+    <code class="code-left">he + he
+print(he + he) </code>
+    <div class="explain-right">
+        
+        <p>10 + 10，不是文字 he + he，因為 he = 10（在上一組定義了）</p>
+    </div>
+</div>
+
+<!-- 第3組 -->
+<div class="code-explain">
+    <code class="code-left">she = "he"</code>
+    <div class="explain-right">
+       
+        <p>定義另一個新變數，名稱 she，內容是文字 he，有用" "包著</p>
+    </div>
+</div>
+
+<!-- 第組 -->
+<div class="code-explain">
+    <code class="code-left">she + she
+print(she + she)</code>
+    <div class="explain-right">
+        
+        <p>變成 hehe</p>
+        <p>這裡文字 he 能被＋，是因為套在變數中，才不會 error</p>
+    </div>
+</div>
+
+<!-- 第組 -->
+<div class="code-explain">
+    <code class="code-left">text + text
+print(text + text)</code>
+    <div class="explain-right">
+       
+        <p>這裡的 text 並沒有被定義，只是一個字串，但又沒用" "包起來</p>
+        <p>因為沒定義，沒用" "包起來，會 error</p>
+    </div>
+</div>
+
+<!-- 第組 -->
+<div class="code-explain">
+    <code class="code-left">he + 3
+print(he + 3)</code>
+    <div class="explain-right">
+        
+        <p>he = 10 再 +3 = 13</p>
+    </div>
+</div>
+
+
+</span>

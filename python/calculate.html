@@ -2,19 +2,13 @@
 
 <span style="font-size: 0.85em; line-height: 1.9;">
 
-<p>基本計算功能，加減乘除及其他。</p>
-
-<p></p>
-
-<p style="margin-bottom: 50px;"></p>
+<p style="text-align: center; margin-bottom: 30px;">基本計算功能，加減乘除及其他。</p>
 
 
 <!-- 第1組 -->
 <div class="code-explain">
-    <code class="code-left">
-        2 ** 3
-        print(2 ** 3)
-    </code>
+    <code class="code-left">2 ** 3
+print(2 ** 3)</code>
     <div class="explain-right">
         <p>Exponentiation 目標 ** 自乘幾次。</p>
         <p>例子代表：目標 2 x 3 次＝2 x 2 x 2</p>
@@ -24,10 +18,8 @@
 
 <!-- 第2組 -->
 <div class="code-explain">
-    <code class="code-left">
-        21 % 4
-        print(21 % 4)
-    </code>
+    <code class="code-left">21 % 4
+print(21 % 4)</code>
     <div class="explain-right">
         <p>Modulo 求餘數。</p>
         <p>21 ÷ 4，餘 1，所以結果是 1。</p>
@@ -36,10 +28,8 @@
 
 <!-- 第3組 -->
 <div class="code-explain">
-    <code class="code-left">
-        100 // 3
-        print(100 // 3)
-    </code>
+    <code class="code-left">100 // 3
+print(100 // 3)</code>
     <div class="explain-right">
         <p>Floor Division 除不盡時，只要整數。</p>
         <p>100 ÷ 3 = 33，後面小數全不要。</p>
@@ -48,10 +38,8 @@
 
 <!-- 第4組 -->
 <div class="code-explain">
-    <code class="code-left">
-        100 / 3
-        print(100 / 3)
-    </code>
+    <code class="code-left">100 / 3
+print(100 / 3)</code>
     <div class="explain-right">
         <p>Division 除數。</p>
         <p>如果能整除，則顯示付點整數：3 / 3 = 1.0 </p>
@@ -60,10 +48,8 @@
 
 <!-- 第5組 -->
 <div class="code-explain">
-    <code class="code-left">
-        2 * 2
-        print(2 * 2) 
-    </code>
+    <code class="code-left">2 * 2
+print(2 * 2) </code>
     <div class="explain-right">
         <p>Multiplication 普通乘數。</p>
     </div>
@@ -71,10 +57,8 @@
 
 <!-- 第6組 -->
 <div class="code-explain">
-    <code class="code-left">
-        6 - 3
-        print(6 - 3)
-    </code>
+    <code class="code-left">6 - 3
+print(6 - 3)</code>
     <div class="explain-right">
         <p>Subtraction 普通減數。</p>
     </div>
@@ -82,10 +66,8 @@
 
 <!-- 第7組 -->
 <div class="code-explain">
-    <code class="code-left">
-        4 + 4
-        print(4 + 4)
-    </code>
+    <code class="code-left">4 + 4
+print(4 + 4)</code>
     <div class="explain-right">
         <p>Addition 普通加數。</p>
     </div>
@@ -93,26 +75,48 @@
 
 <!-- 第8組 -->
 <div class="code-explain">
-    <code class="code-left">
-        6 - 3
-        print(6 - 3)
-    </code>
-    <div class="explain-right">
-        <p>Subtraction 普通減數。</p>
-    </div>
-</div>
-
-<!-- 第9組 -->
-<div class="code-explain">
-    <code class="code-left">
-        4 % 4
-        print(4 % 4)
-    </code>
+    <code class="code-left">4 % 4
+print(4 % 4)</code>
     <div class="explain-right">
         <p>Modulo 求餘數，這裡會除盡，所以是0 </p>
     </div>
 </div>
 
+<p style="margin-bottom: 30px; margin-top: 30px; text-align: center;">
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+</p>
 
+<p style="margin-bottom: 30px; margin-top: 30px; text-align: center;">
+算術運算子對「字串」的效果，只有個別有效，其餘都會 error
+</p>
+<!-- 第9組 -->
+<div class="code-explain">
+    <code class="code-left">"Text" * 5
+print("test" * 5)</code>
+    <div class="explain-right">
+       
+        <p>Text 這字會出現5次：TextTextTextTextText</p>
+    </div>
+</div>
+
+<!-- 第10組 -->
+<div class="code-explain">
+    <code class="code-left">"test" + 5
+print("test" + 5)</code>
+    <div class="explain-right">
+       
+        <p>error，文字（字串）和數字沒辦法相加</p>
+    </div>
+</div>
+
+<!-- 第11組 -->
+<div class="code-explain">
+    <code class="code-left">"test" * "text"
+print("test" * "text")</code>
+    <div class="explain-right">
+       
+        <p>error，文字（字串）沒辦法相乘</p>
+    </div>
+</div>
 
 </span>

@@ -125,7 +125,7 @@
         /* ==================== 右側內容區 ==================== */
         main {
             flex: 1;
-            margin-left: 320px;
+            margin-left: 200px;
             padding: 40px;
             overflow-y: auto;
         }
@@ -135,7 +135,7 @@
             margin-left: 200px;
             padding: 50px;
             border-radius: 16px;
-            background: rgba(255, 255, 255, 0.3) !important;
+            background: rgba(255, 255, 255, 0.6) !important;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
             min-height: calc(100vh - 80px);
         }
@@ -202,7 +202,7 @@
         padding: 12px 20px;
         border-radius: 8px;
         flex: 0 0 auto;             /* 程式碼區不被壓縮 */
-        white-space: pre;
+        white-space: pre-wrap;
         border: double;
     }
 
@@ -245,6 +245,10 @@
                 <a href="#" class="level3-link" onclick="loadContent('comment')">Comment</a>
                 <a href="#" class="level3-link" onclick="loadContent('print')">print</a>
                 <a href="#" class="level3-link" onclick="loadContent('calculate')">Arithmetic Operators</a>
+                <a href="#" class="level3-link" onclick="loadContent('variable')">Variable</a>
+                <a href="#" class="level3-link" onclick="loadContent('input')">input</a>
+                <a href="#" class="level3-link" onclick="loadContent('fstring')">f-string</a>
+
             </div>
         </div>
     </nav>
