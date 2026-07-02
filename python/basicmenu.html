@@ -106,7 +106,11 @@
             margin-top: 2px;
         }
 
-        .submenu.open { max-height: 400px; }
+        .submenu.open { 
+            max-height: none;           /* 取消高度限制，讓它自動撐開 */
+            overflow: visible;          /* 確保不會被切掉 */
+            transition: max-height 0.4s ease;  /* 保留展開動畫 */ 
+        }
 
         .arrow {
             transition: transform 0.3s ease;
@@ -140,7 +144,7 @@
             min-height: calc(100vh - 80px);
         }
 
-        /* ----------------------- 右方內容區的 Text Format ----------------------------- */
+        /* ------------- 右方內容區的 Text Format -------------- */
 
 .content-title {
     font-size: 1.3em;
@@ -172,6 +176,17 @@
     padding-left: 4px;
     display: flow-root;           /* 阻斷 margin collapse */
 }
+
+.highlight {
+    color: #e74c3c;     /* 紅色 */
+    font-weight: bold;  /* 可順便加粗 */
+}
+
+.mgt40 {margin-top: 40px;}
+.mgb40 {margin-bottom: 40px;}
+
+
+/* --------------- 👆🏻右方內容區的 Text Format end --------------------- */
 
 
 /* ==================== 新增：中文專用 LiSong Pro ==================== */
@@ -220,7 +235,6 @@
         min-width: 320px;   /* 可依你需求調整 */
     }
 
-/* ------------------------ 右方內容區的 Text Format end ----------------------------------------- */
     </style>
 </head>
 <body>
@@ -248,7 +262,9 @@
                 <a href="#" class="level3-link" onclick="loadContent('variable')">Variable</a>
                 <a href="#" class="level3-link" onclick="loadContent('input')">input</a>
                 <a href="#" class="level3-link" onclick="loadContent('fstring')">f-string</a>
-
+                <a href="#" class="level3-link" onclick="loadContent('len')">len</a>
+                <a href="#" class="level3-link" onclick="loadContent('datatypes-01')">Basic Data Types</a>
+                <a href="#" class="level3-link" onclick="loadContent('mix-01')">Vars, Input & Data Types</a>
             </div>
         </div>
     </nav>

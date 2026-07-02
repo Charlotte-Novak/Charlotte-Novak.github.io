@@ -103,7 +103,11 @@
       margin-top: 2px;
     }
 
-    .submenu.open { max-height: 400px; }
+    .submenu.open { 
+        max-height: none;           /* 取消高度限制，讓它自動撐開 */
+        overflow: visible;          /* 確保不會被切掉 */
+        transition: max-height 0.4s ease;  /* 保留展開動畫 */ 
+    }
 
     .nav-link.sub {
       display: block;

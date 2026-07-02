@@ -1,0 +1,73 @@
+<p class="content-title" style="text-align: center; padding: 10px;">Basic Data Types 基本資料型別</p>
+
+<span style="font-size: 0.85em; line-height: 1.9;">
+
+<p>正式名稱是：「內建資料型別」Built-in Data Types</p>
+
+<p>這裡只提最基礎的三個：String 字串型、Integer 整數型、Floating-point 小數型。</p>
+
+<p class="mgb40">記著，要看效果，外包一層 print( )，不然就在背景中沉默了 😆</p>
+
+
+
+<!-- 第1組 -->
+<div class="code-explain">
+    <code class="code-left">str(" ")
+str("words")
+str("42")
+str(42+1)
+str(32) + str(1)</code>
+    <div class="explain-right">
+       
+        <p>string 字串型別，必須用" "包起來。</p>
+        <p>其實就是指文字。</p>
+        <p>即使看著是數字，還是個不能計算的文字。</p>
+        <p>沒包" "便成可計算的數字了，不過計算結果會當成文字輸出</p>
+        <p>這種結果也還是字串 321（字串相加是拼接，不是數字相加）。</p>
+    </div>
+</div>
+
+<!-- 第2組 -->
+<div class="code-explain">
+    <code class="code-left">int(99+1)
+int("99+1") ❌
+int(3.1415+1)</code>
+    <div class="explain-right">
+        
+        <p>Integer 整數型別，直接計算，結果仍然是「數字」。</p>
+        <p>不能加" "，加了會 error</p>
+        <p>輸入點數，結果會變整數 4，包含正負數。</p>
+    </div>
+</div>
+
+<!-- 第3組 -->
+<div class="code-explain">
+    <code class="code-left">float(3.1415)
+float(3.14157+3)
+float(3+1)</code>
+    <div class="explain-right">
+       
+        <p>float 浮點數型別，可計算的小數點類。</p>
+        <p>用它才會顯示小數結果 6.14157，包含正負數。</p>
+        <p>整數也會強制轉點數，結果是 4.0</p>
+    </div>
+</div>
+
+<!-- 第4組 -->
+<div class="code-explain">
+    <code class="code-left">type( ) 
+type(42)
+type("word")
+type(42.123)</code>
+    <div class="explain-right">
+        
+        <p>函數分辨種類用的「type」，主用處不是給 user 看的。</p>
+        <p>user 端會顯示 int</p>
+        <p>user 端會顯示 str，必須加" "，不加會被當成變數的名稱。</p>
+        <p>user 端會顯示 float</p>
+    </div>
+</div>
+
+
+
+</span>
