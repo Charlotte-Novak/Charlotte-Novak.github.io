@@ -1,0 +1,104 @@
+<p class="content-title" style="text-align: center; padding: 10px;">round and abs</p>
+
+<span style="font-size: 0.85em; line-height: 1.9;">
+
+<p>函數本身沒什麼特別，但過程會用到「banker’s rounding」概念。</p>
+
+<!-- 第1組 -->
+<div class="code-explain">
+    <code class="code-left">round(3.14) 
+print(round(3.14)) </code>
+    <div class="explain-right">
+       
+        <p>原型</p>
+        <p>包print在原型外，讓user端可看結果。結果是整數3，沒有點數位</p>
+
+    </div>
+</div>
+
+<!-- 第2組 -->
+<div class="code-explain">
+    <code class="code-left">print(round(3.14157, 3))</code>
+    <div class="explain-right">
+        
+        <p>指定點位：點後3個位，格式「, + 需要位數」，「, 3」結果會是3.141</p>
+    </div>
+</div>
+
+<h3 style="margin-top: 50px;">這裡說一下「banker’s rounding」：</h3>
+<p>🏦 banker’s rounding 銀行捨入，非傳統4捨5入. </p>
+<p>當小數部分正好為0.5時（只會在 .5 時候用，大於小於都不用），會向最近的整數是雙數方向取值。</p>
+
+<p>代表一：2.5 = 2 ; 4.5 = 4 ; 6.5 = 6。而不是3、5、7。</p>
+<p>代表二：3.5 = 4 ; 5.5 = 6 ; 7.5 = 8。這些跟四捨五入一樣。</p>
+<p>但，超過 .5 就會進位成下個整數，如2.56會進位成3。</p>
+<p>所以round的基本還是四捨五入，只在 .5 上，再套一層banking's rounding</p>
+
+<span style="text-align: center;">
+<p style="margin-top: 30px;">🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 </p>
+
+<h4>round的小數位總結： </h4>
+<h4>正常四捨五入 0.0 ~ 0.49 ; </h4>
+<h4>banking's rounding 0.5 ;</h4>
+<h4>正常四捨五入 0.51 ~ 0.99。</h4>
+<h4>保留點位用「, + 需要位數」。</h4>
+<p style="margin-bottom: 30px;">🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 </p>
+</span>
+
+<p></p>
+
+<!-- 第3組 -->
+<div class="code-explain">
+    <code class="code-left"></code>
+    <div class="explain-right">
+       
+        <p></p>
+    </div>
+</div>
+
+<!-- 第組 -->
+<div class="code-explain">
+    <code class="code-left"></code>
+    <div class="explain-right">
+        
+        <p></p>
+    </div>
+</div>
+
+<!-- 第組 -->
+<div class="code-explain">
+    <code class="code-left"></code>
+    <div class="explain-right">
+       
+        <p></p>
+    </div>
+</div>
+
+<!-- 第組 -->
+<div class="code-explain">
+    <code class="code-left"></code>
+    <div class="explain-right">
+        
+        <p></p>
+    </div>
+</div>
+
+<!-- 第組 -->
+<div class="code-explain">
+    <code class="code-left"></code>
+    <div class="explain-right">
+       
+        <p></p>
+    </div>
+</div>
+
+<!-- 第組 -->
+<div class="code-explain">
+    <code class="code-left"></code>
+    <div class="explain-right">
+        
+        <p></p>
+    </div>
+</div>
+
+</span>
