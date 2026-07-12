@@ -35,7 +35,7 @@ print(round(3.14)) </code>
 <p>所以round的基本還是四捨五入，只在 .5 上，再套一層banking's rounding</p>
 
 <span style="text-align: center;">
-<p style="margin-top: 30px;">🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 </p>
+<p style="margin-top: 30px;">🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼 🌿 🌼</p>
 
 <h4>round的小數位總結： </h4>
 <h4>正常四捨五入 0.0 ~ 0.49 ; </h4>
@@ -49,56 +49,41 @@ print(round(3.14)) </code>
 
 <!-- 第3組 -->
 <div class="code-explain">
-    <code class="code-left"></code>
+    <code class="code-left">abs( )</code>
     <div class="explain-right">
-       
+
+        <p>abs只會回傳正數，而且最多點數後15位，第16位開始，會進位</p>
         <p></p>
+    </div>
+</div>
+
+
+<!-- 第4組 -->
+<div class="code-explain">
+    <code class="code-left">print(abs(2.6))
+print(abs(-5.6))
+print(abs(0))</code>
+    <div class="explain-right">
+        <p>＝ 2.6</p>
+        <p>＝ 5.6</p>
+        <p>＝ 0</p>
     </div>
 </div>
 
 <!-- 第組 -->
 <div class="code-explain">
-    <code class="code-left"></code>
+    <code class="code-left">abs(-5.699999999999999)
+abs(-5.6999999999999999)</code>
     <div class="explain-right">
-        
-        <p></p>
+                <p>不會進位</p>
+
+        <p>會進位成 5.7</p>
     </div>
 </div>
 
-<!-- 第組 -->
-<div class="code-explain">
-    <code class="code-left"></code>
-    <div class="explain-right">
-       
-        <p></p>
-    </div>
-</div>
+<p style="margin-top: 30px;">這是 IEEE 754 double precision 的浮點數精度限制（約15-16位有效數字）造成的, </p>
 
-<!-- 第組 -->
-<div class="code-explain">
-    <code class="code-left"></code>
-    <div class="explain-right">
-        
-        <p></p>
-    </div>
-</div>
+<p>對上面的float／round（）同樣有效。</p>
 
-<!-- 第組 -->
-<div class="code-explain">
-    <code class="code-left"></code>
-    <div class="explain-right">
-       
-        <p></p>
-    </div>
-</div>
-
-<!-- 第組 -->
-<div class="code-explain">
-    <code class="code-left"></code>
-    <div class="explain-right">
-        
-        <p></p>
-    </div>
-</div>
 
 </span>

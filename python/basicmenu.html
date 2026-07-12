@@ -185,7 +185,14 @@
 .mgt40 {margin-top: 40px;}
 .mgb40 {margin-bottom: 40px;}
 
-
+.chapter-label {
+    display: block;
+    font-size: 0.4em;           /* 比原本大很多，更清楚 */
+    color: #f79d16;
+    margin: 5px 10%;     /* 上下左右留一點空間 */
+    font-weight: bold;
+    opacity: 1;
+}
 /* --------------- 👆🏻右方內容區的 Text Format end --------------------- */
 
 
@@ -255,7 +262,11 @@
             
             <!-- 第3級 -->
             <div id="basic-submenu" class="submenu open">
+
                 <a href="#" class="level3-link" onclick="loadContent('beginning')">Beginning</a>
+
+            <span class="chapter-label">Chapter 1：</span>
+
                 <a href="#" class="level3-link" onclick="loadContent('comment')">Comment</a>
                 <a href="#" class="level3-link" onclick="loadContent('print')">print</a>
                 <a href="#" class="level3-link" onclick="loadContent('calculate')">Arithmetic Operators</a>
@@ -266,6 +277,12 @@
                 <a href="#" class="level3-link" onclick="loadContent('datatypes-01')">Basic Data Types</a>
                 <a href="#" class="level3-link" onclick="loadContent('mix-01')">Vars, Input & Data Types</a>
                 <a href="#" class="level3-link" onclick="loadContent('roundabs')">round , abs</a>
+                <a href="#" class="level3-link" onclick="loadContent('binary')">binary</a>
+
+            <span class="chapter-label">Chapter 2：</span>
+
+                <a href="#" class="level3-link" onclick="loadContent('boolean')">Boolean Values</a>
+
 
             </div>
         </div>
