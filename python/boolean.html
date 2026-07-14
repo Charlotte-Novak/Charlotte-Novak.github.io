@@ -1,0 +1,163 @@
+<p class="content-title" style="text-align: center; padding: 10px;">Boolean Values 布爾值</p>
+
+<span style="font-size: 0.85em; line-height: 1.9;">
+
+<p>其實就 True or False，所以這2個字不能用在變數名稱上。</p>
+
+<p style="margin-bottom: 50px;">又，True or False 第一字母必須大寫。</p>
+
+<h5>布爾值的運算1：「= =」表示：等於，要用2個，不然會撞符號，name＝1之類。</h5>
+<!-- 第1組 -->
+<div class="code-explain">
+    <code class="code-left">print(4 == 2+2)     
+print(5 ==2.5 *2)
+print(5 == 4)</code>
+    <div class="explain-right">
+       
+        <p>True</p>
+        <p>True</p>
+        <p>False</p>
+    </div>
+</div>
+
+
+<h5 class="mgt40">布爾值的運算2：「!=」表示：「不等於」。</h5>
+<!-- 第2組 -->
+<div class="code-explain">
+    <code class="code-left">print(5 != 4)
+print(4 != 4)</code>
+    <div class="explain-right">
+        
+        <p>True</p>
+        <p>False</p>
+    </div>
+</div>
+
+<h5 class="mgt40">布爾值的運算3：「<」表示：小於；a < B（a 小於 B）</h5>
+<!-- 第3組 -->
+<div class="code-explain">
+    <code class="code-left">print(10 < 11)
+print(11 < 10)</code>
+    <div class="explain-right">
+       
+        <p>True，10小於11</p>
+        <p>False，11小於10</p>
+    </div>
+</div>
+
+<h5 class="mgt40">布爾值的運算4：「>」表示：大於；a > B（a 大於 B）</h5>
+<!-- 第4組 -->
+<div class="code-explain">
+    <code class="code-left">print(4+4 > 2+2)
+print(3+3 > 2+2)
+print(99 > 20+20)
+print(100 > 100+1)</code>
+    <div class="explain-right">
+        <p>True</p>
+        <p>True</p>
+        <p>True</p>
+        <p>False</p>        
+    </div>
+</div>
+
+<h5 class="mgt40">布爾值的運算5：「<=」表示：小於 or 等於；a <= B（a 小於 or 等於 B）</h5>
+<!-- 第5組 -->
+<div class="code-explain">
+    <code class="code-left">print(4 <= 5)
+print(5 <= 5)
+print(6 <= 5)</code>
+    <div class="explain-right">
+       
+        <p>True</p>
+        <p>True</p>
+        <p>False</p>
+    </div>
+</div>
+
+<h5 class="mgt40">布爾值的運算6：「>=」表示：大於 or 等於；a >= B（a 大於 or 等於 B）</h5>
+<!-- 第6組 -->
+<div class="code-explain">
+    <code class="code-left">print(1 >= 0)
+print(99+1 >= 50*2)
+print(100 >= 99+2)</code>
+    <div class="explain-right">
+        
+        <p>True</p>
+        <p>True</p>
+        <p>False</p>
+    </div>
+</div>
+
+<h5 class="mgt40">總結練習。</h5>
+<!-- 第7組 -->
+<div class="code-explain">
+    <code class="code-left">ham=12
+print(ham > 6)
+print(ham < 7)
+print(ham <= 13)
+print(ham >= 14)
+print(ham == 12)</code>
+    <div class="explain-right">
+       
+        <p>定變數。</p>
+        <p>True</p>
+        <p>False</p>
+        <p>True</p>
+        <p>False</p>
+        <p>True</p>
+    </div>
+</div>
+
+
+
+
+<p class="mgt40">以上的運算，都是用在數字上，若是字串，則會依照字母的順序來判斷大小。</p>
+<p>且，數字跟數字比對，字串跟字串比對，<strong>數字不能跟字串比對</strong>；str vs str ，int vs int</p>
+
+<p class="mgt40">string 比對的條件，是根據 ASCII：American  Standard  Code for  Information  Interchange</p>
+
+<p>ASCII 排序：正常字母順，但先排小階 a to z（小至大） → 再排大階 A to Z （小至大）。</p>
+<p>所以，大階小於「同字母」的小階。</p>
+
+
+<h5 class="mgt40">布爾值的運算7：字串比對</h5>
+<!-- 第8組 -->
+<div class="code-explain">
+    <code class="code-left">check5 = "big" > "small"
+print(check5)</code>
+    <div class="explain-right">
+       <p>變數套字串對比內容。（不套也行，我就是閒的 😆）</p>
+        <p>顯示結果：False，都是小階，b是第二個字母，s是第十三個字母，故 "big" 不大於 "small"。</p>
+    </div>
+</div>
+
+<!-- 第9組 -->
+<div class="code-explain">
+    <code class="code-left">check6 = "hey" > "HEY"
+print(check6)
+print("hey" > "HEY")</code>
+    <div class="explain-right">
+        
+        <p>True</p>
+        <p>同一個字母，小階的值，比大階大。</p>
+        <p>換一個方式寫也行，結果是一樣的。</p>
+    </div>
+</div>
+
+
+<!-- 第10組 -->
+<div class="code-explain">
+    <code class="code-left">check7 = "HEY" > "hey" 
+print(check7)</code>
+    <div class="explain-right">
+       
+        <p>False</p>
+        <p>大階的值，同字母，比小階小。</p>
+    </div>
+</div>
+
+<h4 class="mgt40">不想計算 ASCII 的值，「< , > , <= , => 」 這些最好只用在 int 和 float 的數據上。</h4>
+
+
+
+</span>
