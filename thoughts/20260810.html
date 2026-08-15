@@ -1,0 +1,145 @@
+<p class="content-title" style="text-align: center; padding: 10px;">關於AI協作個人化的一些感想</p>
+
+<div class="both">
+
+<p class="mgb30">X上很多人分享如何協同AI工作，不過我總覺得這可能很個人化，主要就是用的人不一樣。</p>
+
+<p class="mgb30">AI協作的「最佳實踐」，本質上應該是「最佳個人適配」。</p>
+
+<p class="mgb30">別人是跳躍式發散思維，你是線性邏輯，那麼他推崇的「多線程分步指令」對你就是災難。</p>
+
+<p class="mgb30">有人喜歡AI長篇大論再自己提煉，有人必須逐段確認才安心。這種心理耐受度差異，是任何教程都無法量化的。</p>
+
+<p class="mgb30">你看別人的驚艷輸出，背後是他對行業術語和潛規則的理解在兜底。這其實觸及一個關鍵瓶頸：高手分享的是提示詞，但沒分享他腦中那套把隱性知識轉譯成AI能精準回應的過程。如果換了領域，同樣的提示詞，效果會大幅衰減。</p>
+
+<p class="mgb30">當然，這不代表別人的分享都沒用。可複製的是「通用原則」——例如結構化提問框架、讓AI先複述需求再回答——難複製的是精細到工作流層級的個人SOP。</p>
+
+<p class="mgb30">看看別人的做法，「拿靈感，自己試」的思路，是最高效的路徑。</p>
+
+<p class="mgb30">畢竟什麼方式對自己更有效率，還是得自己上手試出來，因為每一個人都不完全相同，這跟性格、習慣、知識來源、程度、邏輯強項有百份百的關係。而且不只人與人之間有差異，同一個人在不同階段、不同任務上，最適配的方法也會變。</p>
+
+<p class="mgb30">個人適配不是一次性的答案，是持續演化的過程。</p>
+
+<p class="mgb30">尤其對本來就會反覆優化流程的人，別人的分享通常只能當靈感來源，例如：</p>
+
+<ul class="mgb30">
+  <li>發現某個自己沒想到的切入點。</li>
+  <li>看到有人把某個重複步驟自動化得很乾淨。</li>
+  <li>提醒自己「原來還可以這樣拆問題」。</li>
+</ul>
+
+<p class="mgb30">最終還是得靠自己的實驗數據來決定「這招對我有沒有效」。</p>
+
+<p class="mgb30">所以期望在別人的做法中，找到自己能用的「完整方式」，這跟在人海中找到另一個自己的機會率，估計差不多。</p>
+
+<p class="mgb30">對自己最合適、高效的流程，如果是追求效率最大化，而不是能用就好，原點還是要回到自己努力迭代上。</p>
+
+<p class="mgb30">最值得記錄的，不是別人的提示詞或流程，而是你自己實驗後「這次為什麼有效、為什麼無效」的筆記。那是任何教程都給不了的東西。</p>
+
+<p class="mgb30">舉個實際例子。以下是我目前打磨出來的文章編輯流程——強調一下，不是什麼「完美版」，只是到目前為止的版本，而且每次用幾乎都會有小迭代：</p>
+
+<pre class="accent mgb30">
+Grok一次過濾（prompt 1）
+↓
+Grok二次精修過濾（prompt 2）
+↓
+人腦逐字檢查殘留問題＋DeepSeek介入（拆解、確認、找突破、給選項）
+↓
+我寫出點式改動要求（CC一份給DeepSeek）
+↓
+Grok再改
+↓
+最終版1號
+↓
+給DS確認（查看Grok有否全部修改）
+↓
+沒問題 → 最終版1號，定稿 ✅
+有問題 → 回到Step 3 or 4 再loop一次
+</pre>
+
+<p class="mgb30">這條流水線不是我第一天就想出來的。是用了好一陣子，慢慢發現「Grok對某些類型的判斷比較準」、「DS在拆解問題上更細」、「人腦檢查不能省，但可以放在最關鍵的節點上」，一步一步調成現在這個形狀。而且我很有把握，下個月它又會長得不太一樣。</p>
+
+<p class="mgb30">這就是個人適配的形態：沒有別人可以幫你畫出這張圖，但你絕對可以從別人的圖裡偷到一兩個好點子。</p>
+
+<p>Ps. 沒有列出我用什麼prompt，只因這更個人化了，一來參考價值不大（小說編輯，純文字向），二來這東西會視乎我目標內容而改變，自己手上都有好幾款換著用呢，都是一次次看AI反應迭代出來的，主打一個看菜下筷😂</p>
+</div>
+
+
+<div class="grok">
+<p class="mgt30">這篇內容是，我在自行摸索AI如何用在修改小說時的小感想。整篇我立的中心，Grok & DeepSeek 補成了一篇中長文章，全程人機合作，就不拆開對話 mode 來貼了。</p>
+</div>
+
+<p class="content-title" style="text-align: center; padding: 10px;">Thoughts on personalizing AI collaboration</p>
+
+<div class="both">
+
+<p class="mgb30">Plenty of people on X share how they work with AI. I keep thinking this is probably very personal — mainly because the people using it are different.</p>
+
+<p class="mgb30">The "best practice" for AI collaboration is, at heart, "best personal fit."</p>
+
+<p class="mgb30">If someone thinks in jumps and branches, and you think in linear logic, the "multithreaded, step-by-step prompts" they swear by will be a disaster for you.</p>
+
+<p class="mgb30">Some people like the AI to go long, then distill it themselves. Others need to confirm every paragraph before they can relax. That difference in psychological tolerance is something no tutorial can quantify.</p>
+
+<p class="mgb30">When you see someone else's dazzling output, what's holding it up is their grasp of industry jargon and unwritten rules. This hits a key bottleneck: experts share the prompt, but not the process in their head that translates tacit knowledge into something the AI can answer precisely. Swap the field, and the same prompt loses a lot of its power.</p>
+
+<p class="mgb30">That doesn't mean other people's shares are useless. What you can copy are the "general principles" — a structured questioning frame, having the AI restate the request before answering. What you can't copy is a personal SOP refined down to the workflow level.</p>
+
+<p class="mgb30">Looking at how others do it with a "take the spark, try it yourself" mindset is the most efficient path.</p>
+
+<p class="mgb30">After all, what works more efficiently for you still has to be tried out by your own hands, because no two people are quite the same. It is 100% tied to personality, habits, where your knowledge comes from, how deep it goes, and where your logic is strong. And it isn't just person-to-person. For the same person, the best-fit method also changes at different stages and on different tasks.</p>
+
+<p class="mgb30">Personal fit is not a one-time answer. It is a process that keeps evolving.</p>
+
+<p class="mgb30">Especially for people who already keep iterating on their process, other people's shares usually only work as a source of ideas, for example:</p>
+
+<ul class="mgb30">
+  <li>Spotting an angle you hadn't thought of.</li>
+  <li>Seeing someone automate a repetitive step really cleanly.</li>
+  <li>Reminding yourself, "oh, you can break the problem down this way too."</li>
+</ul>
+
+<p class="mgb30">In the end, you still have to rely on your own experimental data to decide whether a move actually works for you.</p>
+
+<p class="mgb30">So expecting to find a complete method you can use wholesale in someone else's practice is about as likely as finding another you in a crowd.</p>
+
+<p class="mgb30">If you want the process that fits you best and is most efficient — maximizing efficiency, not just "good enough" — the starting point still has to be your own hard iteration.</p>
+
+<p class="mgb30">What's most worth writing down is not other people's prompts or workflows, but your own notes after experimenting: why it worked this time, and why it didn't. That's something no tutorial can give you.</p>
+
+<p class="mgb30">A concrete example. Here's the article-editing pipeline I've polished so far — and to be clear, this is not some "perfect version." It's just the version as of now, and almost every use brings a small iteration:</p>
+
+<pre class="accent mgb30">
+Grok first pass (prompt 1)
+↓
+Grok second-pass polish (prompt 2)
+↓
+Human line-by-line check for leftovers + DeepSeek steps in 
+(break it down, confirm, find a breakthrough, offer options)
+↓
+I write a bullet list of change requests (CC a copy to DeepSeek)
+↓
+Grok revises again
+↓
+Final v1
+↓
+Hand to DS to confirm (check whether Grok made every change)
+↓
+No issues → Final v1, locked ✅
+Issues → back to Step 3 or 4 and loop once more
+</pre>
+
+<p class="mgb30">I didn't invent this pipeline on day one. After using it for a while, I slowly noticed that Grok is more accurate on certain kinds of judgment, DS is finer at breaking problems down, and the human check can't be skipped — but it can sit at the most critical nodes. I tuned it into this shape one step at a time. And I'm pretty sure that next month it will look a little different again.</p>
+
+<p class="mgb30">That's what personal fit looks like: nobody else can draw this map for you, but you can absolutely steal a couple of good ideas from someone else's.</p>
+
+<p>P.S. I didn't list the prompts I use, because those are even more personal. For one thing, they wouldn't help much (novel editing, purely text-oriented). For another, they change depending on the target content. I have several versions I swap between, all iterated by watching how the AI responds — the whole point is cooking to the ingredients 😂</p>
+</div>
+
+
+<div class="grok">
+<p class="mgt30">This piece is a small set of thoughts from figuring out, on my own, how to use AI for revising fiction. I set the core of the whole piece; Grok and DeepSeek filled it out into a mid-length article. The whole thing was human–AI collaboration, so I won't split it into chat-mode transcripts to paste here.</p>
+</div>
+
+
+
