@@ -183,7 +183,7 @@ main {
 
 /* index.html / thoughts/thoughts.html */
 .content-box {
-  max-width: 1000px;
+  max-width: 1600px;
   margin-left: 200px;
   padding: 40px;
   border-radius: 16px;
@@ -221,6 +221,12 @@ main {
 .mgb40 {margin-bottom: 40px;}
 .mgt30 {margin-top: 30px;}
 .mgb30 {margin-bottom: 30px;}
+
+/* 瀏覽器預設把 pre 設成 monospace，會跟 p 看起來不一樣 */
+pre {
+  font-family: inherit;
+  font-size: inherit;
+}
 
 .accent {
   color: #0243f7;
@@ -322,7 +328,7 @@ main {
   flex: 0 0 auto;             /* 程式碼區不被壓縮 */
   white-space: pre-wrap;
   border: double;
-  font-size: 1.15em;
+  font-size: 1em;
 }
 
 .explain-right {
@@ -336,5 +342,5 @@ main {
 
 /* 如果想讓程式碼區固定寬度 */
 .code-explain .code-left {
-  min-width: 320px;   /* 可依你需求調整 */
+  min-width: 680px;   /* 可依你需求調整 */
 }

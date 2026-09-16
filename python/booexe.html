@@ -3,82 +3,291 @@
 
 <span style="font-size: 1.2em; line-height: 1.9;">
 
-<p></p>
+<p>主要是練習上一項 Boolean Operators，這是書中沒有的內容。</p>
 
-<p></p>
-
-<p style="margin-bottom: 50px;"></p>
+<p style="margin-bottom: 50px;">是我找 Grok 寫的，用來理清思路。</p>
 
 
-<!-- 第組 -->
+
+<!-- 第1組 -->
+
+<p>純 not 練習</p>
 <div class="code-explain">
-    <code class="code-left"></code>
+    <code class="code-left">print(not True)
+print(not False)
+
+</code>
     <div class="explain-right">
        
-        <p></p>
+        <p>False</p>
+        <p>True</p>
+        <p>基本形態：口不對心</p>
     </div>
 </div>
 
-<!-- 第組 -->
+<!-- 第2組 -->
 <div class="code-explain">
-    <code class="code-left"></code>
+    <code class="code-left">print(not 5 > 3)
+print(not (5 > 3))
+print(not True)</code>
     <div class="explain-right">
         
-        <p></p>
+        <p>1 原問題</p>
+        2 改寫一下，加括號分計算先後，要先看5 > 3＝True，然後再not</p>
+        <p>3 not True → False</p>
     </div>
 </div>
 
-<!-- 第組 -->
+<!-- 第3組 -->
 <div class="code-explain">
-    <code class="code-left"></code>
+    <code class="code-left">print(not 8 == 8)
+print(not (8 == 8))
+print(not True)</code>
+    <div class="explain-right">
+        
+        <p>1 原問題</p>
+        2 改寫一下，先看 8 == 8，8 的確等於 8， 因此 True</p>
+        <p>3 not True → False</p>
+    </div>
+</div>
+<p>5 > 3 是真的 → not (5 > 3) 就是在問「5 不大於 3」→ 這是假的 → False
+</p>
+<p class="mgb40">同樣8 == 8， 是在問 8"不等於"8，所以最後答案是False</p>
+
+<!-- 第4組 -->
+<div class="code-explain">
+    <code class="code-left">x = []
+y = [1,2,3]
+print(not x)
+print(not y)</code>
+    <div class="explain-right">
+        
+        <p>空值的變數</p>
+        <p>有值的變數</p>
+        <p>X是空值，而空值代表 False → not False → True</p>
+        <p>Y是有值，而有值代表 True → not True → False</p>
+    </div>
+</div>
+
+<!-- 第5組 -->
+ <p class="mgt40">純 and 練習</p>
+<div class="code-explain">
+    <code class="code-left">print(True and True)
+print(True and False)</code>
     <div class="explain-right">
        
-        <p></p>
+        <p># TRUE</p>
+        <p># FALSE</p>
     </div>
 </div>
 
-<!-- 第組 -->
+<!-- 第6組 -->
 <div class="code-explain">
-    <code class="code-left"></code>
+    <code class="code-left">print((5 > 3) and (10 > 6))
+
+
+print((5 > 3) and (10 < 6))
+
+</code>
     <div class="explain-right">
         
-        <p></p>
+        <p>5 > 3 (YES) TRUE and 10 > 6 (YES) TRUE,</p> 
+        <p>TRUE AND TURE = TRUE</p>
+        <p>------------------------</p>
+        <p>5 > 3 (YES) TRUE and 10 < 6 (NO) FALSE,</p>
+        <p>TRUE AND FALSE = FALSE</p>
     </div>
 </div>
 
-<!-- 第組 -->
+<!-- 第7組 -->
 <div class="code-explain">
-    <code class="code-left"></code>
+    <code class="code-left">age = 20
+ticket = True
+print(age >= 18 and ticket)
+
+
+</code>
+    <div class="explain-right">
+        
+        <p>年齡變數</p>
+        <p>持票嗎？有</p>
+        <p>年齡大於等於18歲嗎？YES → TRUE</p>
+        <p>持票嗎？YES → TRUE</p>
+        <p>TRUE AND TRUE = TRUE</p>
+    </div>
+</div>
+
+<!-- 第8組 -->
+ <p class="mgt40">純 or 練習</p>
+<div class="code-explain">
+    <code class="code-left">print(True or False)
+print(False or False)</code>
+    <div class="explain-right">
+        
+        <p># True</p>
+        <p># False，只有全 False 最後答案才是 False。</p>
+    </div>
+</div>
+
+<!-- 第9組 -->
+<div class="code-explain">
+    <code class="code-left">print((5 > 10) or (3 < 8))</code>
+    <div class="explain-right">
+        
+        <p>5 > 10 (no) Flase, 3 &lt; 8 (yes) True = True </p>
+    </div>
+</div>
+
+<!-- 第10組 -->
+<div class="code-explain">
+    <code class="code-left">rain = True
+have_umbrella = False
+print(rain or have_umbrella)</code>
+    <div class="explain-right">
+        
+        <p>有雨嗎？ True</p>
+        <p>有帶傘嗎？ False</p>
+        <p>有雨 or 沒傘 → True or False = True</p>
+
+    </div>
+</div>
+
+<!-- 第11組 -->
+
+<p class="mgt40">and + or 混合（先不加 not）</p>
+<div class="code-explain">
+    <code class="code-left">print(True and True or False)</code>
+    <div class="explain-right">
+        
+        <p>#True and True 是True. True or False is True，所以答案是true.</p>
+    </div>
+</div>
+
+<pre class="mgt40 mgb40">
+Python 中 and 的優先級比 or 高，所以上面那句等價於：
+Python (True and True) or False
+而不是 True and (True or False)
+「口不對心反著來的 not 最強，都要的 and 次之，隨便一個就好的 or 最弱」
+</pre>
+
+<!-- 第12組 -->
+<div class="code-explain">
+    <code class="code-left">score = 85
+
+print((score >= 60) and (score < 90) or (score >= 90))
+
+</code>
+    <div class="explain-right">
+        
+        <p>85 >= 60 (yes) True, </p>
+        <p>85 < 90 (yes) True, </p>
+        <p>85 >= 90 (no) Flase</p>
+        <p>True and True = True, True or False = True</p>
+    </div>
+</div>
+
+<!-- 第13組 -->
+<div class="code-explain">
+    <code class="code-left">a = 5
+b = 10
+print((a > 3) and (b < 20) or (a == 5))
+
+</code>
+    <div class="explain-right">
+        
+        <p>5  >3 (yes) True, 
+        <p>10 < 20 (yes) True, 
+        <p>5 == 5 (yes) True. 
+        <p>True True True = True</p>
+    </div>
+</div>
+
+<!-- 第14組 -->
+
+<p class="mgt40">加入 not</p>
+<div class="code-explain">
+    <code class="code-left">print(not (True and False))</code>
+    <div class="explain-right">
+        
+        <p>not(Flase) = True</p>
+    </div>
+</div>
+
+<!-- 第15組 -->
+<div class="code-explain">
+    <code class="code-left">print((5 > 3) and not (10 == 5))</code>
+    <div class="explain-right">
+        
+        <p>5 > 3 (yes) True, not (False) 因為 10 不等於 5, not False is True, so True and True = True.</p>
+    </div>
+</div>
+
+<!-- 第16組 -->
+<div class="code-explain">
+    <code class="code-left">user_input = ""
+
+print(not user_input or len(user_input) > 0)
+
+</code>
     <div class="explain-right">
        
-        <p></p>
+        <p>len(user_input) > 0，檢查有沒有"值"</p>
+        <p>設 user 沒有 input 任何。not (False) because it's emtpy → True, </p>
+        <p>len "" ＝ 0, that means 0 > 0 (no) False</p>
+        <p>True or False, 答案是True.</p>
+
     </div>
 </div>
 
-<!-- 第組 -->
+<!-- 第17組 -->
 <div class="code-explain">
-    <code class="code-left"></code>
-    <div class="explain-right">
-        
-        <p></p>
-    </div>
-</div>
-
-<!-- 第組 -->
-<div class="code-explain">
-    <code class="code-left"></code>
+    <code class="code-left">print((5 > 3) and not (4 == 5))</code>
     <div class="explain-right">
        
-        <p></p>
+        <p>5 > 3 → True. 4 == 5 → False. not False → True. True and True → True.</p>
     </div>
 </div>
 
-<!-- 第組 -->
+
+<!-- 第18組 -->
 <div class="code-explain">
-    <code class="code-left"></code>
+    <code class="code-left">print(not (10 < 5) or (3 > 1))</code>
     <div class="explain-right">
-        
-        <p></p>
+       
+        <p>10 < 5 (no) False , 3 > 1 (yes), True or True → True</p>
+    </div>
+</div>
+
+<!-- 第19組 -->
+<div class="code-explain">
+    <code class="code-left">age = 17
+has_money = True
+print((age >= 18) or (has_money and age >= 16))</code>
+    <div class="explain-right">
+       
+        <p>17 >= 18 (no) False, 17 >= 16 (yes) True, </p>
+        <p>False or True → True</p>    
+    </div>
+</div>
+
+<!-- 第20組 -->
+<div class="code-explain">
+    <code class="code-left">user = ""
+print(not user or len(user) > 5)</code>
+    <div class="explain-right">
+       
+        <p>(empty) False → not False, 0 > 5 (no) False</p>
+        <p> True or False → True</p>
+    </div>
+</div>
+
+<!-- 第21組 -->
+<div class="code-explain">
+    <code class="code-left">score = 75
+print((score >= 60 and score < 90) and not (score == 100))</code>
+    <div class="explain-right">
+       
+        <p>75 >= 60 (yes) True, 75 < 90 (yes) True = True； 75 == 100 (no) False, True and True → True</p>
     </div>
 </div>
 
